@@ -12,6 +12,6 @@ export class ApiService {
   }
 
   public getClient(url?: string) {
-    return this.httpClient.get(`${this.apiURL}/info/`);
+    return this.httpClient.get(`${this.apiURL}info/`);
   }
 }

@@ -40,12 +40,16 @@ export class InfoComponent implements OnInit {
   }];
 
   ngOnInit() {
-    console.log("pankaj");
-    var url = `${this.apiURL}info/`;
-    return this.httpClient.get(url);
+   
   }
   methodType() {
     this.method = 'GET';
+  }
+
+  getInfo(){
+    var url = `${this.apiURL+this.endpoint}`;
+    console.log(url);
+    return this.httpClient.get(url);
   }
 
 }
