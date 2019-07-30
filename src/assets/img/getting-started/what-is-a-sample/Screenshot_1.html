@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>elastic.io Documentation</title>
+
+    <link href="/assets/css/common.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/client.js"></script>
+
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+</head>
+<body>
+
+<div class="page">
+
+    <header>
+        <div class="wrap">
+
+            <div class="search">
+                <i class="search__ico"></i>
+                <div class="search__inner">
+                    <input type="text" name="q" id="search-input" class="search__input" placeholder="Search Docs">
+                </div>
+
+                <div id="hits"></div>
+            </div>
+
+            <div class="burger">
+                <div class="burger__control"></div>
+                <div class="big-menu">
+                    <div class="big-menu__list">
+                        
+                            
+                            
+                            <a class="big-menu__tit" href="/getting-started">
+                                <i class="fa fa-rocket"></i>Getting Started
+                            </a>
+
+                            
+                                <div class="big-menu__item">Basic Concepts</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/getting-started/contracts-and-workspaces.html">Contracts and Workspaces</a>
+                                    
+                                    <a class="big-menu__item" href="/getting-started/data-sample-overview.html">Data Sample Overview</a>
+                                    
+                                    <a class="big-menu__item" href="/getting-started/integration-component.html">Integration Component Overview</a>
+                                    
+                                    <a class="big-menu__item" href="/getting-started/integration-flow.html">Integration Flow Overview</a>
+                                    
+                                    <a class="big-menu__item" href="/getting-started/credential.html">Understanding credentials</a>
+                                    
+                                    <a class="big-menu__item" href="/getting-started/tour.html">Take a tour of the product</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Tutorials</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/getting-started/first-flow.html">Creating a Basic Integration Flow</a>
+                                    
+                                    <a class="big-menu__item" href="/getting-started/webhooks-flow.html">Creating a webhook flow</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Advanced Concepts</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/getting-started/tenant.html">What is a tenant?</a>
+                                    
+                                </div>
+                            
+
+                        
+                            
+                            
+                            <a class="big-menu__tit" href="/guides">
+                                <i class="fa fa-puzzle-piece"></i>How-to Guides
+                            </a>
+
+                            
+                                <div class="big-menu__item">Building integration flows</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/guides/realtime-flows.html">Building real-time flows</a>
+                                    
+                                    <a class="big-menu__item" href="/guides/rest-api-component.html">REST API component</a>
+                                    
+                                    <a class="big-menu__item" href="/guides/managing-flow-history.html">Managing flow history</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Data transformation</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/guides/mapping-data.html">Mapping data</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Integration patterns</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/guides/recipient-list.html">Sending data to a list of recipients</a>
+                                    
+                                    <a class="big-menu__item" href="/guides/content-based-router.html">Content-Based Routing</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Developing Components</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/guides/ssh-keys.html">Managing your SSH keys</a>
+                                    
+                                    <a class="big-menu__item" href="/guides/teams-and-repos.html">Managing your Teams/Components</a>
+                                    
+                                    <a class="big-menu__item" href="/guides/building-nodejs-component.html">Building a component in Node.js</a>
+                                    
+                                    <a class="big-menu__item" href="/guides/building-java-component.html">Building a component in Java</a>
+                                    
+                                    <a class="big-menu__item" href="/guides/deploying-component.html">Deploying a component</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Tenant Management</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/guides/managing-contracts.html">Managing Contracts</a>
+                                    
+                                    <a class="big-menu__item" href="/guides/managing-oauth-clients.html">Managing OAuth Clients</a>
+                                    
+                                    <a class="big-menu__item" href="/guides/managing-user-roles-in-a-tenant.html">Managing user roles in a tenant</a>
+                                    
+                                    <a class="big-menu__item" href="/guides/managing-workspaces.html">Managing Workspaces</a>
+                                    
+                                </div>
+                            
+
+                        
+                            
+                            
+                            <a class="big-menu__tit" href="/components">
+                                <i class="fa fa-archive"></i>Components
+                            </a>
+
+                            
+                                <div class="big-menu__item">CRM components</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/components/microsoft-dynamics-crm.html">Microsoft Dynamics CRM component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/pipedrive.html">Pipedrive component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/salesforce-cpq.html">Salesforce-cpq component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/salesforce.html">Salesforce Component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/sugar-crm.html">Sugar-crm component</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">ERP components</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/components/microsoft-dynamics-nav.html">Microsoft Dynamics NAV component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/netsuite.html">NetSuite component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/sap-bydesign/index.html">SAP ByDesign component</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">E-Commerce components</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/components/amazon-mws.html">Amazon MWS component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/bazaarvoice.html">Bazaarvoice component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/channelgitisor.html">ChannelAdvisor component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/commercetools.html">Commercetools component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/demandware-component.html">Demandware component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/dun-and-bradstreet.html">Dun-and-bradstreet component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/ebay.html">Ebay component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/google-shopping.html">Google-shopping component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/lightspeed-ecom.html">Lightspeed-ecom component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/lightspeed-retail.html">Lightspeed-retail component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/magento1.html">Magento1 component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/magento2.html">Magento2 component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/shopify-admin.html">Shopify-admin component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/shopware.html">Shopware component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/walmart-sc.html">Walmart SC component</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Marketing-related components</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/components/appdirect-component.html">AppDirect Component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/goto-webinar.html">Goto-webinar component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/mailchimp.html">Mailchimp component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/mandrillapp.html">Mandrillapp component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/sdl-translate.html">Sdl-translate component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/twitter.html">Twitter component</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Finance-related components</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/components/exact-online.html">Exact Online component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/quickbooks-component.html">Quickbooks-component component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/stripe-component.html">Stripe component</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Office components</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/components/docusign.html">Docusign component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/gspreadsheets.html">Google Spreadsheets component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/outlook.html">Outlook component</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Protocol components</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/components/amqp.html">AMQP component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/aws-s3/index.html">AWS S3 component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/aws-sns.html">AWS SNS component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/csv-component.html">CSV component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/edifact-parser.html">Edifact-parser component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/google-pubsub.html">Google PubSub component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/ldap.html">Ldap component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/odata.html">ODATA component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/sftp.html">Sftp component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/soap-component.html">Soap component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/xml.html">XML component</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Service components</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/components/allmysms.html">Allmysms component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/aws-lambda.html">AWS Lambda component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/google-translate.html">Google-translate component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/keenio.html">Keenio component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/lionbridge-translation.html">Lionbridge-translation component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/smarty-streets.html">Smarty-streets component</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Database components</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/components/jdbc/index.html">JDBC Component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/mssql.html">MsSQL component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/postgresql.html">Postgresql component</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Utility components</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/components/batch/index.html">Batch component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/code.html">Code component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/configuration-component.html">Configuration component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/email.html">Email component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/filter.html">Filter component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/jsonata.html">Jsonata component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/key-value-component.html">Key-value-component component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/mapper.html">Mapper component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/petstore-nodejs.html">Petstore-nodejs component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/request-reply.html">Request-reply component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/rest-api-component.html">Rest API component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/router.html">Router component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/simple-trigger.html">Simple-trigger component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/splitter.html">Splitter component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/timer.html">Timer component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/webhook.html">Webhook component</a>
+                                    
+                                    <a class="big-menu__item" href="/components/zip/index.html">ZIP/UnZIP component</a>
+                                    
+                                </div>
+                            
+
+                        
+                            
+                            
+                            <a class="big-menu__tit" href="/references">
+                                <i class="fa fa-book"></i>References
+                            </a>
+
+                            
+                                <div class="big-menu__item">Sailor</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/references/sailor-compatibility-matrix.html">Sailor compatibility matrix</a>
+                                    
+                                </div>
+                            
+                                <div class="big-menu__item">Component Descriptor</div>
+                                
+                                <div class="big-menu__sub">
+                                    
+                                    <a class="big-menu__item" href="/references/component-descriptor-structure.html">Component Descriptor Structure</a>
+                                    
+                                    <a class="big-menu__item" href="/references/view-classes.html">View Classes</a>
+                                    
+                                </div>
+                            
+
+                        
+                    </div>
+                </div>
+                <div class="big-overlay"></div>
+            </div>
+
+            <a href="/" class="logo"></a>
+        </div>
+    </header>
+
+    <div class="error">
+    <div class="error__code">404</div>
+    <div class="error__message">
+        Sorry… This page doesn't exist
+    </div>
+    <a href="/" class="button">Go to Homepage</a>
+</div>
+    <div class="footer__spacer"></div>
+</div>
+
+<footer>
+    <div class="wrap">
+        <div class="footer__bar">
+            <div class="footer__copy">
+                &copy; Copyright 2019 elastic.io GmbH
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+
+<script type="text/html" id="hit-template">
+
+    <div class="hit">
+        <h2 class="hit-title"><a href="{{{url}}}">{{{_highlightResult.title.value}}}</a></h2>
+        <p class="hit-text"><a href="{{{url}}}">{{{_highlightResult.text.value}}}</a></p>
+    </div>
+
+</script>
+<script>
+    var search = instantsearch({
+        appId: 'OIJ2XNEVHZ',
+        apiKey: 'e434b9595ab515ca31a23e22aa39ecf1',
+        indexName: 'test_elasticio_documentation',
+        urlSync: false,
+        searchFunction: function(helper) {
+            var searchResults = $('#hits');
+            if (helper.state.query === '') {
+                searchResults.hide();
+                $('#search-input').blur();
+                return;
+            }
+            helper.search();
+            searchResults.show();
+        }
+    });
+
+    search.addWidget(
+            instantsearch.widgets.searchBox({
+                container: '#search-input'
+            })
+    );
+
+    search.addWidget(
+            instantsearch.widgets.hits({
+                container: '#hits',
+                hitsPerPage: 10,
+                templates: {
+                    item: document.getElementById('hit-template').innerHTML,
+                    empty: "We didn't find any results for the search <em>\"\"</em>"
+                }
+            })
+    );
+    search.start();
+</script>
+</body>
+<script type="text/javascript" src="/assets/js/site.js"></script>
+</html>

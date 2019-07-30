@@ -1,0 +1,131 @@
+<div class="layout">
+    <div class="wrap">
+        <div class="breadcrumbs">
+            <a href="../../index.html" class="breadcrumbs__item">Home</a>
+            <a href="info.html" class="breadcrumbs__item">Components</a>
+            <span class="breadcrumbs__item">ES INFO</span>
+        </div>
+        <div class="layout__side">
+            <div class="contents">
+                <div class="side">
+                    <div class="side__title dropdown">
+
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#demo"> Try it out </button>
+
+                        <div id="demo" class="collapse custom-collapse">
+                            <form action="" method="GET">
+                                <div class="form-group">
+                                    <label for="sel1">Server</label>
+                                    <!-- <select class="form-control" id="sel1">
+                                        <option>-- Select --</option>
+                                        <option value="test">https://eswtest.oii.oceaneering.com</option>
+                                        <option value="dev">https://eswdev.oii.oceaneering.com</option>
+                                        <option value="prd">https://eswrapper.oii.oceaneering.com</option>
+                                    </select> -->
+                                    <input type="text" class="form-control" value={{apiURL}} id="server" disabled>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="sel2">Method</label>
+                                        <!-- <select class="form-control" id="sel1">
+                                            <option>-- Select --</option>
+                                            <option>GET</option>
+                                            <option>POST</option>
+                                            <option>PUT</option>
+                                            <option>DELETE</option>
+                                            <option>HEAD</option>
+                                        </select> -->
+                                        <input type="text" value={{method}} class="form-control" id="method" disabled>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                            <label for="sel2">Endpoint</label>                                            
+                                            <input type="text" value={{endpoint}} class="form-control" id="end" disabled>
+                                        </div>
+
+                                <div *ngIf="!methodType() === GET" class="form-group">
+                                        <label for="comment">Request</label>
+                                        <textarea class="form-control" rows="5" id="comment" disabled></textarea>
+                                      </div>
+
+                                      <button class="btn btn-success" (click)="ngOnInit()" type="submit"> Send </button>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="layout__content">
+            <div class="article">
+                <h1>ES INFO</h1>
+                <hr />
+                <p>The
+                    <code class="highlighter-rouge">info</code> API provides general information about Build Model, Licencing Information and feature information of
+                    installed elasticsearch
+                    <a href="https://eswrapper.oii.oceaneering.com/info" target="_blank">
+                        <code class="highlighter-rouge">version</code>
+                    </a>.</p>
+
+                <h2 id="description">Description</h2>
+                <p>The information provided by this API includes</p>
+                <ul>
+                    <li>
+                        <strong>Build Information - </strong> including the build number and timestamp
+                    </li>
+                    <li>
+                        <strong>License Information - </strong>basic information about the currently installed license</li>
+                    <li>
+                        <strong>Features Information - </strong>JThe features that are currently enabled and available in the current
+                        license</li>
+                </ul>
+
+                <h2 id="token">Using INFO</h2>
+                <p>A
+                    <a href="#">
+                        <code class="highlighter-rouge">GET</code>
+                    </a> request that can be exposed through Web Browsers as well as from REST clients. Similarly to elasticsearch
+                    default context,the endpoint
+                    <a href="https://esw.oii.oceaneering.com/info?pretty" target="_blank">
+                        <code class="highlighter-rouge">info</code>
+                    </a> will be used to use this API.
+                </p>
+                <p>
+                    <img src="../../assets/img/components/info/info.png" alt="Info Success" />
+                </p>
+
+                <p>
+                    <strong>Response Sample</strong>
+                </p>
+                <div class="highlighter-rouge">
+                    <div class="highlight">
+                        <ngx-json-viewer [json]="jsonObject"></ngx-json-viewer>
+
+
+                    </div>
+                </div>
+
+                <p>
+                    <strong>Error Response Sample</strong>
+                </p>
+                <p>
+                    <img src="../../assets/img/components/info/infoerr.png" alt="Info Error " />
+                </p>
+                <div class="highlighter-rouge">
+                    <div class="highlight">
+                        <ngx-json-viewer [json]="jsonObject1"></ngx-json-viewer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer__spacer"></div>
