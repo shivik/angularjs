@@ -10,6 +10,7 @@ import { InfoComponent } from './info/info.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { HttpClientModule } from '@angular/common/http';
+import { TryitComponent } from './tryit/tryit.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    InfoComponent
+    InfoComponent,
+    TryitComponent
   ],
   imports: [
     BrowserModule,

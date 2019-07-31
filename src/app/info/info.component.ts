@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
+
+import { ApiService } from '../api.service';
+
 
 @Component({
   selector: 'app-info',
@@ -7,12 +10,9 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ['./info.component.css']
 })
 export class InfoComponent implements OnInit {
-  apiURL: string = 'https://eswdev.oii.oceaneering.com/';
-  method: string = 'GET';
-  endpoint: string = 'info';
-  isGet: boolean = true;
-  client: any;
-  constructor(private httpClient: HttpClient) {
+  
+  constructor(public httpClient: HttpClient, public TryItModel: ApiService) {
+    
   }
   jsonObject: any = [{
     "success": true,
@@ -33,23 +33,13 @@ export class InfoComponent implements OnInit {
     }
   }];
 
-
   jsonObject1: any = [{
     "success": false,
     "error_message": "/imfo Page does not exist!"
   }];
 
   ngOnInit() {
-   
   }
-  methodType() {
-    this.method = 'GET';
-  }
-
-  getInfo(){
-    var url = `${this.apiURL+this.endpoint}`;
-    console.log(url);
-    return this.httpClient.get(url);
-  }
+  
 
 }

@@ -1,0 +1,29 @@
+<div class="side__title dropdown">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#demo"> Try it
+        out </button>
+    <div id="demo" class="collapse custom-collapse">
+        <form method="GET">
+            <div class="form-group">
+                <label for="sel1">Server</label>
+                <input type="text" class="form-control" value={{apiURL}} id="server" disabled>
+            </div>
+            <div class="form-group">
+                <label for="sel2">Method</label>
+                <input type="text" value={{method}} class="form-control" id="method" disabled>
+            </div>
+            <div class="form-group">
+                <label for="sel2">Endpoint</label>
+                <input type="text" value={{endpoint}} class="form-control" id="end" disabled>
+            </div>
+            <div *ngIf="!fetchServerDetails() === GET" class="form-group">
+                <label for="comment">Request</label>
+                <textarea class="form-control" rows="5" id="comment" disabled></textarea>
+            </div>
+            <button class="btn btn-success" type="button" (click)="getInfo()"> Send </button>
+        </form>
+    </div>
+    <div *ngIf="response != undefined" id="resp" class="mt-1">
+            <label for="sel1">Response</label>
+        <pre class=" overflow-y ht-100-mm"> {{ response | json }} </pre>
+    </div>
+</div>
