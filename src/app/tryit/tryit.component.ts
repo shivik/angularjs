@@ -14,7 +14,7 @@ export class TryitComponent implements OnInit {
   endpoint: string = 'info';
   response: any;
   client: any;
-  constructor(public httpClient: HttpClient, public abcd: ApiService) {
+  constructor(public httpClient: HttpClient, public TryItModel: ApiService) {
   }
 
   ngOnInit() {

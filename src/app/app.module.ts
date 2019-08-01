@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { InfoComponent } from './info/info.component';
+import { GeneratetokenComponent } from './generatetoken/generatetoken.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,7 +21,8 @@ import { TryitComponent } from './tryit/tryit.component';
     FooterComponent,
     HomeComponent,
     InfoComponent,
-    TryitComponent
+    TryitComponent,
+    GeneratetokenComponent
   ],
   imports: [
     BrowserModule,

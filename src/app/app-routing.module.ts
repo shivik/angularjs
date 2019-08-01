@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InfoComponent } from './info/info.component';
 import { HomeComponent } from './home/home.component';
+import { GeneratetokenComponent } from './generatetoken/generatetoken.component';
 const routes: Routes = [
-  {path: 'info',component: InfoComponent},
-  {path: 'home',component: HomeComponent},
+  { path: 'home', component: HomeComponent },
+  { path: 'info', component: InfoComponent },
+  { path: 'generatetoken', component: GeneratetokenComponent },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 
@@ -12,6 +14,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { 
-  
+export class AppRoutingModule {
 }

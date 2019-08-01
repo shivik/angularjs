@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-
 import { ApiService } from '../api.service';
-
 
 @Component({
   selector: 'app-info',
@@ -11,9 +8,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./info.component.css']
 })
 export class InfoComponent implements OnInit {
-  
   constructor(public httpClient: HttpClient, public TryItModel: ApiService) {
-    
   }
   jsonObject: any = [{
     "success": true,
@@ -41,6 +36,6 @@ export class InfoComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
 
 }
