@@ -1,3 +1,106 @@
 <p>
   generatetoken works!
 </p>
+<div class="layout">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a href="/home" class="breadcrumbs__item">Home</a>
+      <a href="/generatetoken" class="breadcrumbs__item">Components</a>
+      <span class="breadcrumbs__item">Generate Token</span>
+    </div>
+    <div class="layout__side">
+      <div class="contents">
+        <div class="side">
+          <app-tryit></app-tryit>
+        </div>
+      </div>
+    </div>
+    <div class="layout__content">
+      <div class="article">
+        <h1>Generate Token</h1>
+        <hr />
+        <p>JSON Web Token (JWT) is a compact, URL-safe means of representing
+          claims to be transferred between two parties. The claims in a JWT
+          are encoded as a JSON object that is used as the payload of a JSON
+          Web Signature (JWS) structure or as the plaintext of a JSON Web
+          Encryption (JWE) structure, enabling the claims to be digitally
+          signed or integrity protected with a Message Authentication Code
+          (MAC) and/or encrypted.</p>
+
+        <h2 id="requisites">Prerequisites</h2>
+        <p>To perform an empty search, followings steps needs to be done</p>
+        <ul>
+          <li><strong>Client - </strong> REST clients are applications capable to consume and
+            operate with resources exposed by RESTful servers.</li>
+          <li><strong>Endpoint - </strong>A REST Service Endpoint is an endpoint which
+            services a set of REST resources.</li>
+          <li><strong>JWT Token - </strong>JWT is an open standard that defines a
+            compact and self-contained way for securely transmitting information between
+            parties as a JSON object.</li>
+        </ul>
+
+        <h2 id="token">Generating Token</h2>
+        <p>Generate Token using REST client i;e POSTMAN. The endpoint to use for this would be
+          <a routerLink="."><code class="highlighter-rouge">generateAuthenticationToken</code></a>Token once
+          generated has validity of 1 hour</p>
+        <p><img src="../../assets/img/components/token/gentoken.png" alt="Token Generation Sample" />
+        </p>
+
+        <p><strong>Request Sample</strong></p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="tokenReq"></ngx-json-viewer>
+          </div>
+        </div>
+
+        <p><strong>Response Sample</strong></p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="tokenResp"></ngx-json-viewer>
+          </div>
+        </div>
+        <hr />
+
+
+        <h2 id="response">Error handling</h2>
+        <p>All the error are handled which occured at the point of generating access_token. The
+          error code will be in JSON format and is user understandable.</p>
+        <p><img src="../../assets/img/components/token/invalidapp.png" alt="app_name wrong" />
+        </p>
+        <p>and perform search hitting the send. Make sure you're using the right endpoint i;e <a href="#"><code
+              class="highlighter-rouge">search</code></a></p>
+        <p><img src="../../assets/img/components/token/invalidroles.png" alt="roles are wrong" />
+        </p>
+
+        <p><strong>Sample 1 - When Application Name is Invalid</strong></p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="invalidAppReq"></ngx-json-viewer>
+          </div>
+        </div>
+
+        <p><strong>Response Sample</strong></p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="invalidAppResp"></ngx-json-viewer>
+          </div>
+        </div>
+
+        <p><strong>Sample 2 - When Roles are not available for particular case</strong></p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="invalidRolesReq"></ngx-json-viewer>
+          </div>
+        </div>
+
+        <p><strong>Response Sample</strong></p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="invalidRolesResp"></ngx-json-viewer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer__spacer"></div>
