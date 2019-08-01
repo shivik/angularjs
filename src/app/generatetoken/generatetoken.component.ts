@@ -8,6 +8,12 @@ import { ApiService } from '../api.service';
   styleUrls: ['./generatetoken.component.css']
 })
 export class GeneratetokenComponent implements OnInit {
+
+  constructor(public httpClient: HttpClient, public TryItModel: ApiService) { }
+
+  ngOnInit() {
+  }
+
   tokenReq: any = [{
     "app_name": "Demand Planning Tool",
     "username": "skashyap",
@@ -19,7 +25,7 @@ export class GeneratetokenComponent implements OnInit {
     "success": true,
     "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBfbmFtZSHI6IkRIVIlbWFuZCBQbGFubmluZyBUb29sIiwidXNlcm5hbWUiOiJza2FzaHlhcCIsInJv",
     "expiry": 3600
-}];
+  }];
   invalidAppReq: any = [{
     "app_name": "Demand Planning Toolx",
     "username": "skashyap",
@@ -46,10 +52,5 @@ export class GeneratetokenComponent implements OnInit {
     "errorCode": 107,
     "app": "Demand Planning Tool"
   }];
-
-  constructor(public httpClient: HttpClient, public TryItModel: ApiService) { }
-
-  ngOnInit() {
-  }
 
 }
