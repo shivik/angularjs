@@ -10,7 +10,7 @@ import { ApiService } from '../api.service';
 export class InfoComponent implements OnInit {
   constructor(public httpClient: HttpClient, public TryItModel: ApiService) {
   }
-  jsonObject: any = [{
+  infoSuccess: any = [{
     "success": true,
     "data": {
       "name": "4R6KJ-m",
@@ -29,7 +29,7 @@ export class InfoComponent implements OnInit {
     }
   }];
 
-  jsonObject1: any = [{
+  infoError: any = [{
     "success": false,
     "error_message": "/imfo Page does not exist!"
   }];
