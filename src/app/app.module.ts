@@ -1,12 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Routes, RouterModule } from '@angular/router';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { HttpClientModule } from '@angular/common/http';
-import { TryitComponent } from './tryit/tryit.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
@@ -20,6 +17,8 @@ import { FetchbyidComponent } from './fetchbyid/fetchbyid.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { RecentsearchComponent } from './recentsearch/recentsearch.component';
 import { TopsearchComponent } from './topsearch/topsearch.component';
+import { TryitComponent } from './tryit/tryit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,7 +28,6 @@ import { TopsearchComponent } from './topsearch/topsearch.component';
     FooterComponent,
     HomeComponent,
     InfoComponent,
-    TryitComponent,
     GeneratetokenComponent,
     RevoketokenComponent,
     UpdatemappingsComponent,
@@ -38,13 +36,16 @@ import { TopsearchComponent } from './topsearch/topsearch.component';
     FetchbyidComponent,
     AutocompleteComponent,
     RecentsearchComponent,
-    TopsearchComponent
+    TopsearchComponent,
+    TryitComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
-    NgxJsonViewerModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgxJsonViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

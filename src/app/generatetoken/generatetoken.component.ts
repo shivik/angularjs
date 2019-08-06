@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ApiService } from '../api.service';
+import { DataService } from '../data.service';
+import { Subscription } from 'rxjs';
+import { AppEnvironment } from '../../environments/AppEnvironment';
 
 @Component({
   selector: 'app-generatetoken',
@@ -8,10 +9,20 @@ import { ApiService } from '../api.service';
   styleUrls: ['./generatetoken.component.css']
 })
 export class GeneratetokenComponent implements OnInit {
-
-  constructor(public httpClient: HttpClient, public TryItModel: ApiService) { }
+  infoDetails: Subscription;
+  info: object;
+  server: object;
+  response: any;
+  client: any;
+  hidden: boolean = false;
+  constructor(private genToken: DataService) {
+  }
 
   ngOnInit() {
+    this.genToken.setData(AppEnvironment.environment.endpoints.generateAuthenticationToken);
+    this.infoDetails = this.genToken.getData().subscribe((data) => {
+      this.info = data;
+    });
   }
 
   tokenReq: any = [{
@@ -27,7 +38,7 @@ export class GeneratetokenComponent implements OnInit {
     "expiry": 3600
   }];
   invalidAppReq: any = [{
-    "app_name": "Demand Planning Toolx",
+    "app_name": "Demand Planning ToolX",
     "username": "skashyap",
     "roles": [
       "user"
@@ -37,7 +48,7 @@ export class GeneratetokenComponent implements OnInit {
     "success": false,
     "errorMessage": "Invalid App Name",
     "errorCode": 104,
-    "app": "Demand Planning Toolx"
+    "app": "Demand Planning ToolX"
   }];
   invalidRolesReq: any = [{
     "app_name": "Demand Planning Tool",

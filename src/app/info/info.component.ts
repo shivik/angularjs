@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ApiService } from '../api.service';
+import { DataService } from '../data.service';
+import { Subscription } from 'rxjs';
+import { AppEnvironment } from '../../environments/AppEnvironment';
 
 @Component({
   selector: 'app-info',
@@ -8,7 +9,13 @@ import { ApiService } from '../api.service';
   styleUrls: ['./info.component.css']
 })
 export class InfoComponent implements OnInit {
-  constructor(public httpClient: HttpClient, public TryItModel: ApiService) {
+  infoDetails: Subscription;
+  info: object;
+  server: object;
+  response: any;
+  client: any;
+  hidden: boolean = false;
+  constructor(private infoData: DataService) {
   }
   infoSuccess: any = [{
     "success": true,
@@ -35,7 +42,10 @@ export class InfoComponent implements OnInit {
   }];
 
   ngOnInit() {
+    this.infoData.setData(AppEnvironment.environment.endpoints.info);
+    this.infoDetails = this.infoData.getData().subscribe((data) => {
+      this.info = data;
+    });
   }
-
 
 }
