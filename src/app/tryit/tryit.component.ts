@@ -6,7 +6,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppEnvironment } from '../../environments/AppEnvironment';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
 @Component({
   selector: 'app-tryit',
@@ -17,11 +16,12 @@ export class TryitComponent implements OnInit {
 
   reqForm = new FormGroup({
 
-    reqbody: new FormControl()
+    jsonRequest: new FormControl()
   });
 
   // details: { "server": string, "endpoints": { [key: string]: any }, "method": { [key: string]: any } };
-  jsonReq: { "reqbody": { [key: string]: any }};
+  headers: any;
+  jsonReq: { "jsonRequest": { [key: string]: any } };
   apiDetails: Subscription;
   details: { "type": string, "route": string, "authentication": string };
   apiURL: any;
@@ -32,6 +32,7 @@ export class TryitComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.headers = new HttpHeaders().set('Content-Type', 'application/json');
     this.apiDetails = this.apiService.getData().subscribe((data) => {
       this.details = data;
     });
@@ -56,8 +57,11 @@ export class TryitComponent implements OnInit {
         });
         break;
       case 'POST':
-        this.httpClient.post<any>(`${url}`, `${this.jsonReq.reqbody}`, { headers: headers }).subscribe((resp) => {
+        this.httpClient.post<any>(`${url}`, `${this.jsonReq.jsonRequest}`, { headers: this.headers }).subscribe((resp) => {
           this.response = resp;
+          if (this.response.hasOwnProperty('access_token')) {
+            this.apiService.setToken(this.response.access_token);
+          }
         });
         break;
     }

@@ -1,3 +1,75 @@
-<p>
-  revoketoken works!
-</p>
+<div class="layout">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a href="../../index.html" class="breadcrumbs__item">Home</a>
+      <a href="revoketoken.html" class="breadcrumbs__item">Components</a>
+      <span class="breadcrumbs__item">Revoke Token</span>
+    </div>
+    <div class="layout__side">
+      <div class="contents">
+        <div class="side">
+          <app-tryit></app-tryit>
+        </div>
+      </div>
+    </div>
+    <div class="layout__content">
+      <div class="article">
+        <h1>Revoke Token API</h1>
+        <hr />
+        <p>The Token Revocation API defines a trigger for clients to indicate to the
+          <a href="#"><code class="highlighter-rouge">authorization</code></a> server that is
+          elasticsearch that an access token is no longer needed.
+          The revoke token API is called at the stage of logging out the apllication which
+          initiates the <a href="revoketoken.html"><code class="highlighter-rouge">revoketoken</code></a> and
+          deletes the particular token from elasticsearch index</p>
+
+        <h2 id="requisites">Prerequisites</h2>
+        <p>To revoke a access_token, following is a must have resource</p>
+        <ul>
+          <li><strong>Client - </strong> REST clients are applications capable to consume and
+            operate with resources exposed by RESTful servers.</li>
+          <li><strong>Endpoint - </strong>The endpoint <a href="revoketoken.html"><code
+                class="highlighter-rouge">revoketoken</code></a> to initiate the revoke
+            service</li>
+          <li><strong>Access Token - </strong>A valid JWT token that is being used to access
+            the application with security.</li>
+        </ul>
+
+        <h2 id="token">Revoking Token</h2>
+        <p>Revoke Token using REST client i;e POSTMAN. The endpoint to use for this would be
+          <a href="#"><code class="highlighter-rouge">revoketoken</code></a>Token once
+          deleted cannot be recovered. However, <code class="highlighter-rouge">access_tokens</code> are
+          self-desctructive in nature.
+          If not refreshed, they vanish from the index after 24 hours.</p>
+        <p><img src="../../assets/img/components/token/revoketoken.png" alt="Token revoke Sample" />
+        </p>
+
+        <p><strong>Request Sample</strong></p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="revokeReq"></ngx-json-viewer>
+          </div>
+        </div>
+        <p><strong>Response Sample</strong></p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="revokeResp"></ngx-json-viewer>
+          </div>
+        </div>
+
+        <h2 id="response">Error handling</h2>
+        <p>All the error are handled which occured at the point of revoking token. The
+          error code will be in JSON format and is user understandable.</p>
+        <p><img src="../../assets/img/components/token/revtokenerr.png" alt="revoke token error" />
+        </p>
+        <p><strong>Sample</strong></p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="revokeError"></ngx-json-viewer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer__spacer"></div>

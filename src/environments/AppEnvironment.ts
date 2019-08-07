@@ -26,6 +26,36 @@ export const AppEnvironment = {
                 "type": "POST",
                 "route": "generateAuthenticationToken",
                 "authentication": true
+            },
+            "revoketoken": {
+                "type": "POST",
+                "route": "revoketoken",
+                "authentication": true
+            },
+            "updatemappings": {
+                "type": "POST",
+                "route": "updatemappings",
+                "authentication": true
+            },
+            "fetchbyid": {
+                "type": "POST",
+                "route": "fetchbyid",
+                "authentication": true
+            },
+            "autocomplete": {
+                "type": "POST",
+                "route": "autocomplete",
+                "authentication": true
+            },
+            "recentsearches": {
+                "type": "POST",
+                "route": "recentsearches",
+                "authentication": true
+            },
+            "topsearches": {
+                "type": "POST",
+                "route": "topsearches",
+                "authentication": true
             }
         }
     }

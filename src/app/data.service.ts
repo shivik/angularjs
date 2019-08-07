@@ -9,11 +9,12 @@ export class DataService {
 
   private data$: BehaviorSubject<any>;
   private serverData$: BehaviorSubject<any>;
+  private tokenData$: BehaviorSubject<any>;
 
   constructor() {
     this.data$ = new BehaviorSubject<any>("");
     this.serverData$ = new BehaviorSubject<any>("");
-
+    this.tokenData$ = new BehaviorSubject<any>("");
   }
 
   /**
@@ -44,5 +45,20 @@ export class DataService {
    */
   public setServerDetails(serverData: any): void {
     this.serverData$.next(serverData);
+  }
+
+  /**
+   * get token data
+   */
+  public getToken(): Observable<any> {
+    return this.tokenData$.asObservable();
+  }
+
+  /**
+   * set server details
+   * @param tokenData 
+   */
+  public setToken(tokenData: any): void {
+    this.tokenData$.next(tokenData);
   }
 }

@@ -2,7 +2,7 @@
     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#demo"> Try it
         out </button>
     <div id="demo" class="collapse custom-collapse">
-        <form [formGroup]="reqForm" >
+        <form [formGroup]="reqForm">
             <div class="form-group">
                 <label for="sel1">Server</label>
                 <input type="text" class="form-control" value={{apiURL}} id="server" disabled>
@@ -14,16 +14,20 @@
             <div class="form-group">
                 <label for="sel2">Endpoint</label>
                 <input type="text" value={{endpoint}} class="form-control" id="end" disabled>
-            </div>            
+            </div>
+            <div *ngIf="method != 'GET' && endpoint != 'generateAuthenticationToken'" class="form-group">
+                <label>Access Token</label>
+                <input type="text" value={{endpoint}} class="form-control" id="end" disabled>
+            </div>
             <div *ngIf="method != 'GET'" class="form-group">
-                <label >Request</label>
-                <textarea formControlName="reqbody" class="form-control" rows="5" id="comment" ></textarea>
+                <label>Request</label>
+                <textarea formControlName="jsonRequest" class="form-control" rows="5" id="comment"></textarea>
             </div>
             <button class="btn btn-success" type="submit" (click)="getInfo()"> Send </button>
         </form>
     </div>
     <div *ngIf="response != undefined" id="resp" class="mt-1">
-            <label for="sel1">Response</label>
+        <label for="sel1">Response</label>
         <pre class=" overflow-y ht-100-mm"> {{ response | json }} </pre>
     </div>
 </div>
