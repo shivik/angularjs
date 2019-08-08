@@ -1,8 +1,8 @@
 <div class="layout">
   <div class="wrap">
     <div class="breadcrumbs">
-      <a href="../../index.html" class="breadcrumbs__item">Home</a>
-      <a href="revoketoken.html" class="breadcrumbs__item">Components</a>
+      <a routerLink="/home" class="breadcrumbs__item">Home</a>
+      <a routerLink="/revoketoken" class="breadcrumbs__item">Components</a>
       <span class="breadcrumbs__item">Revoke Token</span>
     </div>
     <div class="layout__side">
@@ -17,10 +17,10 @@
         <h1>Revoke Token API</h1>
         <hr />
         <p>The Token Revocation API defines a trigger for clients to indicate to the
-          <a href="#"><code class="highlighter-rouge">authorization</code></a> server that is
+          <code class="highlighter-rouge">authorization</code> server that is
           elasticsearch that an access token is no longer needed.
           The revoke token API is called at the stage of logging out the apllication which
-          initiates the <a href="revoketoken.html"><code class="highlighter-rouge">revoketoken</code></a> and
+          initiates the <code class="highlighter-rouge">revoketoken</code> and
           deletes the particular token from elasticsearch index</p>
 
         <h2 id="requisites">Prerequisites</h2>
@@ -28,8 +28,8 @@
         <ul>
           <li><strong>Client - </strong> REST clients are applications capable to consume and
             operate with resources exposed by RESTful servers.</li>
-          <li><strong>Endpoint - </strong>The endpoint <a href="revoketoken.html"><code
-                class="highlighter-rouge">revoketoken</code></a> to initiate the revoke
+          <li><strong>Endpoint - </strong>The endpoint <code
+                class="highlighter-rouge">revoketoken</code> to initiate the revoke
             service</li>
           <li><strong>Access Token - </strong>A valid JWT token that is being used to access
             the application with security.</li>
@@ -37,7 +37,7 @@
 
         <h2 id="token">Revoking Token</h2>
         <p>Revoke Token using REST client i;e POSTMAN. The endpoint to use for this would be
-          <a href="#"><code class="highlighter-rouge">revoketoken</code></a>Token once
+          <code class="highlighter-rouge">revoketoken</code>. Token once
           deleted cannot be recovered. However, <code class="highlighter-rouge">access_tokens</code> are
           self-desctructive in nature.
           If not refreshed, they vanish from the index after 24 hours.</p>

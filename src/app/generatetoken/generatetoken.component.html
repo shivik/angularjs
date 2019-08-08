@@ -1,8 +1,8 @@
 <div class="layout">
   <div class="wrap">
     <div class="breadcrumbs">
-      <a href="/home" class="breadcrumbs__item">Home</a>
-      <a href="/generatetoken" class="breadcrumbs__item">Components</a>
+      <a routerLink="/home" class="breadcrumbs__item">Home</a>
+      <a routerLink="/generatetoken" class="breadcrumbs__item">Components</a>
       <span class="breadcrumbs__item">Generate Token</span>
     </div>
     <div class="layout__side">
@@ -38,8 +38,7 @@
 
         <h2 id="token">Generating Token</h2>
         <p>Generate Token using REST client i;e POSTMAN. The endpoint to use for this would be
-          <a routerLink="."><code class="highlighter-rouge">generateAuthenticationToken</code></a>Token once
-          generated has validity of 1 hour</p>
+          <code class="highlighter-rouge">generateAuthenticationToken</code> and is valid for one hour from the time it was generated.</p>
         <p><img src="../../assets/img/components/token/gentoken.png" alt="Token Generation Sample" />
         </p>
 
@@ -64,8 +63,8 @@
           error code will be in JSON format and is user understandable.</p>
         <p><img src="../../assets/img/components/token/invalidapp.png" alt="app_name wrong" />
         </p>
-        <p>and perform search hitting the send. Make sure you're using the right endpoint i;e <a href="#"><code
-              class="highlighter-rouge">search</code></a></p>
+        <p>and perform search hitting the send. Make sure you're using the right endpoint i;e <code
+              class="highlighter-rouge">search</code></p>
         <p><img src="../../assets/img/components/token/invalidroles.png" alt="roles are wrong" />
         </p>
 

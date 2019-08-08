@@ -20,10 +20,11 @@ export class TryitComponent implements OnInit {
   });
 
   // details: { "server": string, "endpoints": { [key: string]: any }, "method": { [key: string]: any } };
-  headers: any;
   jsonReq: { "jsonRequest": { [key: string]: any } };
-  apiDetails: Subscription;
   details: { "type": string, "route": string, "authentication": string };
+  savedToken: any;
+  apiDetails: Subscription;
+  headers: any;
   apiURL: any;
   method: any;
   endpoint: any;
@@ -32,7 +33,8 @@ export class TryitComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.headers = new HttpHeaders().set('Content-Type', 'application/json');
+    this.savedToken = sessionStorage.getItem('token');
+    this.headers = new HttpHeaders().set('Content-Type', 'application/json').set('access_token', this.savedToken);
     this.apiDetails = this.apiService.getData().subscribe((data) => {
       this.details = data;
     });
@@ -60,7 +62,7 @@ export class TryitComponent implements OnInit {
         this.httpClient.post<any>(`${url}`, `${this.jsonReq.jsonRequest}`, { headers: this.headers }).subscribe((resp) => {
           this.response = resp;
           if (this.response.hasOwnProperty('access_token')) {
-            this.apiService.setToken(this.response.access_token);
+            sessionStorage.setItem('token', this.response.access_token);
           }
         });
         break;

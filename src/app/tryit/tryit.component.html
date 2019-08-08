@@ -16,8 +16,8 @@
                 <input type="text" value={{endpoint}} class="form-control" id="end" disabled>
             </div>
             <div *ngIf="method != 'GET' && endpoint != 'generateAuthenticationToken'" class="form-group">
-                <label>Access Token</label>
-                <input type="text" value={{endpoint}} class="form-control" id="end" disabled>
+                <label>Access Token <span> *New token required? <a routerLink="/generatetoken">click here</a></span></label>
+                <input type="text" value={{savedToken}} class="form-control" id="end" disabled>
             </div>
             <div *ngIf="method != 'GET'" class="form-group">
                 <label>Request</label>
