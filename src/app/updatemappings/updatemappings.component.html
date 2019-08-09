@@ -1,3 +1,74 @@
-<p>
-  updatemappings works!
-</p>
+<div class="layout">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a routerLink="/home" class="breadcrumbs__item">Home</a>
+      <a routerLink="/updatemappings" class="breadcrumbs__item">Components</a>
+      <span class="breadcrumbs__item">Update Mappings</span>
+    </div>
+    <div class="layout__side">
+      <div class="contents">
+        <div class="side">
+          <app-tryit></app-tryit>
+        </div>
+      </div>
+    </div>
+    <div class="layout__content">
+      <div class="article">
+        <h1>Update Mappings API</h1>
+        <hr />
+        <p>The update mappings API provides the users/developers to define mappings and settings for a index on
+          elasticsearch to save data in the preffered pattern.
+          <code class="highlighter-rouge">Elasticsearch</code> will automatically create an index (reading settings and
+          mappings from <code class="highlighter-rouge">configuration</code> file) for you if you're using this API.
+
+
+          <h2 id="requisites">Prerequisites</h2>
+          <p>To use Update Mappings API, an <a routerLink="/generatetoken"><code
+                class="highlighter-rouge">access_token</code></a> and followings are the must have resources</p>
+          <ul>
+            <li><strong>Client - </strong> REST clients are applications capable to consume and
+              operate with resources exposed by RESTful servers.</li>
+            <li><strong>Endpoint - </strong>The endpoint <code class="highlighter-rouge">updatemappings</code> to
+              initiate
+              the update mappings call.</li>
+            <li><strong>Access Token - </strong>A valid JWT token that is being used to access
+              the application with security.</li>
+          </ul>
+
+          <h2 id="token">Updating Mappings</h2>
+          <p>Update Index Mappings using REST client i;e POSTMAN. The endpoint to use for this would be
+            <code class="highlighter-rouge">updatemappings</code>. Once the mapping call initiated, it will read mapping
+            configurations from the application.json file. It will create new index, adds data into it from MongoDB and
+            starts the live syncing (if live parameter provided) between MongoDB and Elasticsearch.
+            <p><img src="../../assets/img/components/updatemappings/updatemappings.png" alt="Update Mappings Sample" />
+            </p>
+
+            <p><strong>Request Sample</strong></p>
+            <div class="highlighter-rouge">
+              <div class="highlight">
+                <ngx-json-viewer [json]="updateMappingReq"></ngx-json-viewer>
+              </div>
+            </div>
+            <p><strong>Response Sample</strong></p>
+            <div class="highlighter-rouge">
+              <div class="highlight">
+                <ngx-json-viewer [json]="updateMappingResp"></ngx-json-viewer>
+              </div>
+            </div>
+
+            <h2 id="response">Error handling</h2>
+            <p>All the error are handled which occured at the point of revoking token. The
+              error code will be in JSON format and is user understandable.</p>
+            <p><img src="../../assets/img/components/updatemappings/mappingerror.png" alt="revoke token error" />
+            </p>
+            <p><strong>Sample</strong></p>
+            <div class="highlighter-rouge">
+              <div class="highlight">
+                <ngx-json-viewer [json]="mappingerror"></ngx-json-viewer>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer__spacer"></div>

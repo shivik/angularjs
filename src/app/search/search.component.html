@@ -1,3 +1,95 @@
-<p>
-  search works!
-</p>
+<div class="layout">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a routerLink="/home" class="breadcrumbs__item">Home</a>
+      <a routerLink="/search" class="breadcrumbs__item">Components</a>
+      <span class="breadcrumbs__item">Search</span>
+    </div>
+    <div class="layout__side">
+      <div class="contents">
+        <div class="side">
+          <app-tryit></app-tryit>
+        </div>
+      </div>
+    </div>
+    <div class="layout__content">
+      <div class="article">
+        <h1>Search API</h1>
+        <hr />
+        <h2 id="description">Description</h2>
+        <p>The Search <code class="highlighter-rouge">API</code> combines
+          searching, search term, completion, suggestions and other
+          search application features into a single API. You can interact with the Search API
+          through <code class="highlighter-rouge">REST</code> by using a
+          variety of query styles as for Multiple Query Styles. The
+          Search API makes it easy to create search applications without needing to understand
+          many of the details of the <code class="highlighter-rouge">elasticsearch</code>.</p>
+        <h2 id="types">Search Types</h2>
+        <p>There are different types of searches can be performed using search API. A few of
+          them are listed here but Elasticsearch wrapper is not limited to only these.</p>
+        <ul>
+          <li>
+            <code class="highlighter-rouge">empty search</code> -
+            Returns the result without any input to the search.
+          </li>
+          <li><code class="highlighter-rouge">search_keyword</code> -
+            search_keyword looks for words anywhere in the record. This search type observes
+            the Analyzers and Mappings of the fields, processes the search input and fetch
+            all the records where input is existing. This a good substitute
+            for a subject search when you do not know the standard subject heading. It may
+            also be used as a substitute for user input as search when you have incomplete
+            details about the information you're seeking.</li>
+            <li><a routerLink="/searchterm"><code class="highlighter-rouge">search_term</code></a></li>
+          <li><a routerLink="/refinedby"><code class="highlighter-rouge">refined_by</code></a></li>
+          <li><a routerLink="/advancesearch"><code class="highlighter-rouge">advanced_search</code></a></li>
+        </ul>
+
+        <h2 id="params">Search Parameters</h2>
+        <p>The following types of search parameters can be used within a JSON <code
+              class="highlighter-rouge">search</code> request.
+          To perform a particular search, application specific<code
+              class="highlighter-rouge">tokens</code> are required to pass within the
+          <code class="highlighter-rouge">headers</code></p>
+        <ul>
+          <li><a href="#"><code class="highlighter-rouge">page_size</code></a></li>
+          <li><a href="#"><code class="highlighter-rouge">offset</code></a></li>
+          <li><a href="#"><code class="highlighter-rouge">aggs</code></a></li>
+          <li><a href="#"><code class="highlighter-rouge">suggesters</code></a></li>
+          <li><a href="#"><code class="highlighter-rouge">highlight</code></a></li>
+          <li><a href="#"><code class="highlighter-rouge">has_parent</code></a></li>
+          <li><a href="#"><code class="highlighter-rouge">has_child</code></a></li>
+          <li><a href="#"><code class="highlighter-rouge">search_type</code></a></li>
+        </ul>
+        <h2 id="smpl">sample only</h2>
+        <p><strong>FILTERING EXAMPLE:</strong></p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="updateMappingResp"></ngx-json-viewer>
+          </div>
+        </div>
+
+        <p><strong>EXAMPLE FOR CBR PASSTHROUGH:</strong></p>
+
+        <p>Let’s say that the first step of flow returns the following data in the sample:</p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="updateMappingResp"></ngx-json-viewer>
+          </div>
+        </div>
+        <h2 id="known-limitations">Known limitations</h2>
+        <p>Here are the limitation of this component enforced by the <a
+            href="https://www.allmysms.com/en/">AllMySMS</a>.</p>
+        <ul>
+          <li><strong>Sender Name</strong> must be 3 to 11 characters long and contain only
+            alpha-numeric (<code class="highlighter-rouge">A-Z/0-9</code>) values and must
+            start with a letter.</li>
+          <li><strong>Message Text</strong> must be no longer than 160 characters for a single
+            SMS.</li>
+          <li><strong>Number of recipients</strong> is recommended to keep below 2000.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer__spacer"></div>

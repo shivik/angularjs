@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+::ng-deep .ngx-json-viewer .segment .segment-main .segment-key{
+    color: #ffffff !important;
+}
+
+.side__title{cursor: pointer;}
+.custom-collapse{     padding: 1rem;
+    margin: .5rem 0 0;
+    /* color: #ffffff; */
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .5rem;
+    position: relative;
+    font-weight: normal;min-height: 30vh;    font-size: 1.25rem;}
+
+    .btn:focus{outline:none;}
+
+    .custom-collapse{    width: 325px;}
+    .mt-1{margin-top: 1rem;}
+    .ht-100-mm{max-height: 100vh;
+        min-height: 10vh;}
+    .overflow-y{overflow-y:auto;}
+    ::ng-deep pre {
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        color: #fff;
+        word-break: break-all;
+        word-wrap: break-word;
+        background-color: #2f3844;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width:325px;
+    }
