@@ -20,6 +20,7 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { RecentsearchComponent } from './recentsearch/recentsearch.component';
 import { GeneratetokenComponent } from './generatetoken/generatetoken.component';
 import { UpdatemappingsComponent } from './updatemappings/updatemappings.component';
+import { TypesComponent } from './types/types.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { UpdatemappingsComponent } from './updatemappings/updatemappings.compone
     AutocompleteComponent,
     RecentsearchComponent,
     TopsearchComponent,
-    TryitComponent
+    TryitComponent,
+    TypesComponent
   ],
   imports: [
     FormsModule,

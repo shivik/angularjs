@@ -11,6 +11,7 @@ import { FetchbyidComponent } from './fetchbyid/fetchbyid.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { RecentsearchComponent } from './recentsearch/recentsearch.component';
 import { TopsearchComponent } from './topsearch/topsearch.component';
+import { TypesComponent } from './types/types.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'info', component: InfoComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'autocomplete', component: AutocompleteComponent },
   { path: 'recentsearch', component: RecentsearchComponent },
   { path: 'topsearch', component: TopsearchComponent },
+  { path: 'types', component: TypesComponent },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 
