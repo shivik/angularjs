@@ -18,7 +18,7 @@
         <p>There are different types of searches can be performed using search API. A few of
           them are listed here but Elasticsearch wrapper is not limited to only these.</p>
         <hr />
-        <h2 id="empty">Empty Search</h2>
+        <h2 id="empty">1. Empty Search</h2>
         <p>Empty Search is the type of search enables users to perform search without providing any input parameter to
           elasticsearch to perform its operation. Empty search takes the parameters from JWT token to observe the
           details on which index search has to be perform and initiates the search without any JSON body parameter. </p>
@@ -47,7 +47,7 @@
 
         <!---->
 
-        <h2 id="skeyword">Search Keyword</h2>
+        <h2 id="skeyword">2. Search Keyword</h2>
         <p>The search_keyword enable you to search analyzed text fields such as the body of an email. The query
           string is processed using the same analyzer that was applied to the field during indexing. </p>
 
@@ -74,7 +74,7 @@
 
         <!---->
 
-        <h2 id="sterm">Search Term</h2>
+        <h2 id="sterm">3. Search Term</h2>
         <p>The search_term enable you to search the exact matches to the text used as input to search_term. It analyzes
           the text and creates a phrase query out of the analyzed text</p>
 
@@ -101,7 +101,7 @@
 
         <!---->
 
-        <h2 id="refinedby">Refined By</h2>
+        <h2 id="refinedby">4. Refined By</h2>
         <p>The refined_by enable you to use filtered search. To use refined_by, you must need to mention the field(s)
           name on which you want to set filters to retrieve data from a dataset.</p>
         <h3>Using refined_by</h3>
@@ -121,6 +121,31 @@
         <div class="highlighter-rouge">
           <div class="highlight">
             <ngx-json-viewer [json]="refinedResp"></ngx-json-viewer>
+          </div>
+        </div>
+        <br />
+
+        <!---->
+
+        <h2 id="advancesrch">5. Advance Search</h2>
+        <p>The advanced_search can be of exact type or full text search type enable you to search by fields.For example when you want to search provided text in particular fields, then advance search is used.</p>
+        <h3>Using advance_search</h3>
+        <p>In order to perform search using search_term, you must have a valid JWT Token and search_keyword has to be
+          sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+              class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+        <h4>Empty Search Sample</h4><br />
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <p>POST </p>
+            <ngx-json-viewer [json]="advance_search"></ngx-json-viewer>
+          </div>
+        </div><br />
+        <h4>JSON Response</h4><br />
+
+        <p>While hitting the search Endpoint, the following response will be generated</p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="advcsrchresp"></ngx-json-viewer>
           </div>
         </div>
         <br />

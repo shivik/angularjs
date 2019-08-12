@@ -181,4 +181,49 @@ export class TypesComponent implements OnInit {
       }
     }
   ];
+
+  advance_search: any = [
+    {
+      "advance_search": {
+        "operator": "or",
+        "department": {
+          "value": "3596 SCM Aberdeen",
+          "type": "exact_match"
+        },
+        "empbusinesstitle": {
+          "value": "store",
+          "type": "partial_match"
+        }
+      }
+    }
+  ];
+  advcsrchresp: any = [
+    {
+      "success": true,
+      "data": {
+        "took": 2,
+        "hits": {
+          "total": 26,
+          "hits": [
+            {
+              "_source": {
+                "empid": "02018090",
+                "emplocation": "Sonils Base",
+                "empbusinesstitle": "Store Keeper",
+                "empjobfunction": "Supply Chain Management",
+                "empsubserviceline": "SS SCM ANGOLA",
+                "empjobsubfuncion": "Warehouse Management",
+                "empcountry": "AGO",
+                "empcity": "Luanda",
+                "empstatus": "A",
+                "preffirstname": "Mateus",
+                "empserviceline": "SS SCM",
+                "employeename": "Mateus Jose Silva"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ];
 }
