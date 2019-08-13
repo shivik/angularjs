@@ -12,6 +12,7 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { RecentsearchComponent } from './recentsearch/recentsearch.component';
 import { TopsearchComponent } from './topsearch/topsearch.component';
 import { TypesComponent } from './types/types.component';
+import { ParamsComponent } from './params/params.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'info', component: InfoComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'autocomplete', component: AutocompleteComponent },
   { path: 'recentsearch', component: RecentsearchComponent },
   { path: 'topsearch', component: TopsearchComponent },
+  { path: 'params', component: ParamsComponent },
   { path: 'types', component: TypesComponent },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];

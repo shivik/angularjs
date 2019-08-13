@@ -21,6 +21,7 @@ import { RecentsearchComponent } from './recentsearch/recentsearch.component';
 import { GeneratetokenComponent } from './generatetoken/generatetoken.component';
 import { UpdatemappingsComponent } from './updatemappings/updatemappings.component';
 import { TypesComponent } from './types/types.component';
+import { ParamsComponent } from './params/params.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { TypesComponent } from './types/types.component';
     RecentsearchComponent,
     TopsearchComponent,
     TryitComponent,
-    TypesComponent
+    TypesComponent,
+    ParamsComponent
   ],
   imports: [
     FormsModule,

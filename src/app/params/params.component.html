@@ -1,3 +1,187 @@
-<p>
-  params works!
-</p>
+<div class="layout">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a routerLink="/home" class="breadcrumbs__item">Home</a>
+      <a routerLink="/search" class="breadcrumbs__item">Components</a>
+      <span class="breadcrumbs__item">Search</span>
+    </div>
+    <div class="layout__side">
+      <div class="contents">
+        <div class="side">
+          <app-tryit></app-tryit>
+        </div>
+      </div>
+    </div>
+    <div class="layout__content">
+      <div class="article">
+        <h1>Search Parameters</h1>
+        <p>There are different types of searches parameters that can be used in search API. A few of
+          them are listed here but Elasticsearch wrapper is not limited to only these.</p>
+        <hr />
+        <h2 id="psize">1. Size/Offset</h2>
+        <p>Pagination of results can be done by using the from and size parameters. The from parameter defines the
+          offset from the first result you want to fetch. The size parameter allows you to configure the maximum amount
+          of hits to be returned. Note that from + size can not be more than the <code
+            class="highlighter-rouge">index.max_result_window</code> index setting
+          which defaults to 10,000. For limitless pagination, see <a routerLink="/scroll"><code
+              class="highlighter-rouge">Scroll API</code></a></p>
+
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <p>POST _search</p>
+            <ngx-json-viewer [json]="page_size"></ngx-json-viewer>
+          </div>
+        </div><br />
+        <h4>Wrapper Constructed Query</h4><br />
+        <p>While hitting the search Endpoint, the following query will be generated if <code
+            class="highlighter-rouge">debug</code> used.</p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="pageSizeQuery"></ngx-json-viewer>
+          </div>
+        </div>
+        <br />
+
+        <!---->
+
+        <h2 id="suggest">2. Suggesters</h2>
+        <p> </p>
+
+        <h3>Using Search Keyword</h3>
+        <p>In order to perform search using search_keyword, you must have a valid JWT Token and search_keyword has to be
+          sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+              class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+        <h4>Empty Search Sample</h4><br />
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <p>POST _search </p>
+            <ngx-json-viewer [json]=""></ngx-json-viewer>
+          </div>
+        </div><br />
+        <h4>JSON Response</h4><br />
+
+        <p>While hitting the search Endpoint, the following response will be generated</p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]=""></ngx-json-viewer>
+          </div>
+        </div>
+        <br />
+
+        <!---->
+
+        <h2 id="highlight">3. Highlight</h2>
+        <p></p>
+
+        <h3>Using Search Term</h3>
+        <p>In order to perform search using search_term, you must have a valid JWT Token and search_keyword has to be
+          sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+              class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+        <h4>Empty Search Sample</h4><br />
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <p>POST _search</p>
+            <ngx-json-viewer [json]=""></ngx-json-viewer>
+          </div>
+        </div><br />
+        <h4>JSON Response</h4><br />
+
+        <p>While hitting the search Endpoint, the following response will be generated</p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]=""></ngx-json-viewer>
+          </div>
+        </div>
+        <br />
+
+        <!---->
+
+        <h2 id="parent">4. Has Parent</h2>
+        <p></p>
+        <h3>Using refined_by</h3>
+        <p>In order to perform search using search_term, you must have a valid JWT Token and search_keyword has to be
+          sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+              class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+        <h4>Empty Search Sample</h4><br />
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <p>POST _search</p>
+            <ngx-json-viewer [json]=""></ngx-json-viewer>
+          </div>
+        </div><br />
+        <h4>JSON Response</h4><br />
+
+        <p>While hitting the search Endpoint, the following response will be generated</p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]=""></ngx-json-viewer>
+          </div>
+        </div>
+        <br />
+
+        <!---->
+
+        <h2 id="child">5. Has Child</h2>
+        <p></p>
+        <h3>Using advance_search</h3>
+        <p>In order to perform search using search_term, you must have a valid JWT Token and search_keyword has to be
+          sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+              class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+        <h4>Empty Search Sample</h4><br />
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <p>POST _search</p>
+            <ngx-json-viewer [json]=""></ngx-json-viewer>
+          </div>
+        </div><br />
+        <h4>JSON Response</h4><br />
+
+        <p>While hitting the search Endpoint, the following response will be generated</p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]=""></ngx-json-viewer>
+          </div>
+        </div>
+        <br />
+
+        <!---->
+
+        <h2 id="type">6. Search Type</h2>
+        <p></p>
+        <h3>Using advance_search</h3>
+        <p>In order to perform search using search_term, you must have a valid JWT Token and search_keyword has to be
+          sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+              class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+        <h4>Empty Search Sample</h4><br />
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <p>POST _search</p>
+            <ngx-json-viewer [json]=""></ngx-json-viewer>
+          </div>
+        </div><br />
+        <h4>JSON Response</h4><br />
+
+        <p>While hitting the search Endpoint, the following response will be generated</p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]=""></ngx-json-viewer>
+          </div>
+        </div>
+        <br />
+
+        <!--<h2 id="known-limitations">Known limitations</h2>
+            <p>Here are the limitation of this component</a>.</p>
+             <ul>
+              <li><strong>Sender Name</strong> must be 3 to 11 characters long and contain only
+                alpha-numeric (<code class="highlighter-rouge">A-Z/0-9</code>) values and must
+                start with a letter.</li>
+              <li><strong>Message Text</strong> must be no longer than 160 characters for a single
+                SMS.</li>
+              <li><strong>Number of recipients</strong> is recommended to keep below 2000.</li>
+            </ul> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer__spacer"></div>
