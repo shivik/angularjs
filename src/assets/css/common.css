@@ -416,7 +416,7 @@ header {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 26%;
+    /* width: 26%; */
     height: 109px;
 }
 
@@ -1867,6 +1867,7 @@ nav:hover .nav__text {
         transition: opacity 0s ease 0.5s;
         transform: scale(0.7);
         transform-origin: 0 0;
+        height: 109px;
     }
     .header_search .logo,
     .header_search .logo:link,
@@ -2245,10 +2246,13 @@ h4:hover .deep-link {
 .date__item.active .date__tit {
     color: #445265;
 }
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img{height:109px !important;}
 
 @media (max-width: 768px) {
     .logo {
         width: 100%;
         transform: none;
     }
+    .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img{height:auto !important;}
 }
+
