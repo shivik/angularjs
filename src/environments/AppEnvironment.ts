@@ -2,8 +2,8 @@
 export const AppEnvironment = {
     "environment": {
         "server": {
-            "url": "localhost:3000/",
-            "scheme": "http",
+            "url": "houelstc2.oii.oceaneering.com/",
+            "scheme": "https",
             "certpath": ""
         },
         "endpoints": {

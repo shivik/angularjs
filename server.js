@@ -2,6 +2,8 @@
 const express = require('express');
 const path = require('path');
 const http = require('http');
+const https = require('https');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 var session = require('express-session');
 
@@ -45,5 +47,18 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
+
+
+// let serverOptions = {
+//     'key': fs.readFileSync('/app/certs/server.key'),
+//     'cert': fs.readFileSync('/app/certs/server.crt')
+// };
+
+// const Server = https.createServer(serverOptions, app);
+// Server.listen(port, () => {
+//     console.log(`API running on https:localhost :${port}`);
+
+// });
+
 const server = http.createServer(app);
 server.listen(port, () => console.log(`API running on localhost:${port}`));
