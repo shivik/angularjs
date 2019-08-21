@@ -19,7 +19,7 @@
                 <label for="sel2">Id<span>*</span></label>
                 <input type="text" formControlName="fetchid" class="form-control" id="end" editable>
             </div>
-            <div *ngIf="endpoint != 'generateAuthenticationToken'" class="form-group">
+            <div *ngIf="method!= 'GET' && endpoint != 'generateAuthenticationToken'" class="form-group">
                 <label>Access Token <span> *New token required? <a routerLink="/generatetoken">click
                             here</a></span></label>
                 <input type="text" value={{savedToken}} class="form-control" id="end" disabled>
