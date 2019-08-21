@@ -16,11 +16,12 @@ export class TryitComponent implements OnInit {
 
   reqForm = new FormGroup({
 
-    jsonRequest: new FormControl()
+    jsonRequest: new FormControl(),
+    fetchid: new FormControl()
   });
 
   // details: { "server": string, "endpoints": { [key: string]: any }, "method": { [key: string]: any } };
-  jsonReq: { "jsonRequest": { [key: string]: any } };
+  jsonReq: { "jsonRequest": { [key: string]: any }, "fetchid": { [key: string]: any } };
   details: { "type": string, "route": string, "authentication": string };
   savedToken: any;
   apiDetails: Subscription;
@@ -34,7 +35,9 @@ export class TryitComponent implements OnInit {
 
   ngOnInit() {
     this.savedToken = sessionStorage.getItem('token');
-    this.headers = new HttpHeaders().set('Content-Type', 'application/json').set('access_token', this.savedToken);
+    this.headers = new HttpHeaders()
+      .set('access_token', this.savedToken)
+      .set('Content-Type', 'application/json');
     this.apiDetails = this.apiService.getData().subscribe((data) => {
       this.details = data;
     });
@@ -54,30 +57,27 @@ export class TryitComponent implements OnInit {
     var url = `${this.apiURL + this.endpoint}`;
     switch (this.method) {
       case 'GET':
-        console.log('1');
-        if (this.endpoint != 'fetchbyid/02032665') {
-          console.log('2');
-          this.httpClient.get(url).subscribe((data) => {
-            this.response = data;
-          });
-        }
-        else {
-          console.log('3');
-          this.httpClient.get<any>(`${url}`, { headers: this.headers }).subscribe((resp) => {
+        this.httpClient.get(url).subscribe((data) => {
+          this.response = data;
+        });
+        break;
+      case 'POST':
+        if (this.jsonReq.fetchid != null) {
+          this.httpClient.post<any>(`${url + '/' + this.jsonReq.fetchid}`, null, { headers: this.headers }).subscribe((resp) => {
             this.response = resp;
             if (this.response.hasOwnProperty('access_token')) {
               sessionStorage.setItem('token', this.response.access_token);
             }
           });
         }
-        break;
-      case 'POST':
-        this.httpClient.post<any>(`${url}`, `${this.jsonReq.jsonRequest}`, { headers: this.headers }).subscribe((resp) => {
-          this.response = resp;
-          if (this.response.hasOwnProperty('access_token')) {
-            sessionStorage.setItem('token', this.response.access_token);
-          }
-        });
+        else {
+          this.httpClient.post<any>(`${url}`, `${this.jsonReq.jsonRequest}`, { headers: this.headers }).subscribe((resp) => {
+            this.response = resp;
+            if (this.response.hasOwnProperty('access_token')) {
+              sessionStorage.setItem('token', this.response.access_token);
+            }
+          });
+        }
         break;
     }
     return this.response;

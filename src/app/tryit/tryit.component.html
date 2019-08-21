@@ -11,19 +11,20 @@
                 <label for="sel2">Method</label>
                 <input type="text" value={{method}} class="form-control" id="method" disabled>
             </div>
-            <div *ngIf="endpoint != 'fetchbyid'" class="form-group">
+            <div class="form-group">
                 <label for="sel2">Endpoint</label>
                 <input type="text" value={{endpoint}} class="form-control" id="end" disabled>
             </div>
             <div *ngIf="endpoint == 'fetchbyid'" class="form-group">
-                <label for="sel2">Endpoint</label>
-                <input type="text" value={{endpoint}} class="form-control" id="end" editable>
+                <label for="sel2">Id<span>*</span></label>
+                <input type="text" formControlName="fetchid" class="form-control" id="end" editable>
             </div>
             <div *ngIf="endpoint != 'generateAuthenticationToken'" class="form-group">
-                <label>Access Token <span> *New token required? <a routerLink="/generatetoken">click here</a></span></label>
+                <label>Access Token <span> *New token required? <a routerLink="/generatetoken">click
+                            here</a></span></label>
                 <input type="text" value={{savedToken}} class="form-control" id="end" disabled>
             </div>
-            <div *ngIf="method != 'GET'" class="form-group">
+            <div *ngIf="method != 'GET' && endpoint != 'fetchbyid'" class="form-group">
                 <label>Request</label>
                 <textarea formControlName="jsonRequest" class="form-control" rows="5" id="comment"></textarea>
             </div>
