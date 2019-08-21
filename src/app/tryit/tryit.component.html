@@ -11,11 +11,15 @@
                 <label for="sel2">Method</label>
                 <input type="text" value={{method}} class="form-control" id="method" disabled>
             </div>
-            <div class="form-group">
+            <div *ngIf="endpoint != 'fetchbyid'" class="form-group">
                 <label for="sel2">Endpoint</label>
                 <input type="text" value={{endpoint}} class="form-control" id="end" disabled>
             </div>
-            <div *ngIf="method != 'GET' && endpoint != 'generateAuthenticationToken'" class="form-group">
+            <div *ngIf="endpoint == 'fetchbyid'" class="form-group">
+                <label for="sel2">Endpoint</label>
+                <input type="text" value={{endpoint}} class="form-control" id="end" editable>
+            </div>
+            <div *ngIf="endpoint != 'generateAuthenticationToken'" class="form-group">
                 <label>Access Token <span> *New token required? <a routerLink="/generatetoken">click here</a></span></label>
                 <input type="text" value={{savedToken}} class="form-control" id="end" disabled>
             </div>

@@ -54,9 +54,22 @@ export class TryitComponent implements OnInit {
     var url = `${this.apiURL + this.endpoint}`;
     switch (this.method) {
       case 'GET':
-        this.httpClient.get(url).subscribe((data) => {
-          this.response = data;
-        });
+        console.log('1');
+        if (this.endpoint != 'fetchbyid/02032665') {
+          console.log('2');
+          this.httpClient.get(url).subscribe((data) => {
+            this.response = data;
+          });
+        }
+        else {
+          console.log('3');
+          this.httpClient.get<any>(`${url}`, { headers: this.headers }).subscribe((resp) => {
+            this.response = resp;
+            if (this.response.hasOwnProperty('access_token')) {
+              sessionStorage.setItem('token', this.response.access_token);
+            }
+          });
+        }
         break;
       case 'POST':
         this.httpClient.post<any>(`${url}`, `${this.jsonReq.jsonRequest}`, { headers: this.headers }).subscribe((resp) => {

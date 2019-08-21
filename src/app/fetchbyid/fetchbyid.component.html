@@ -1,3 +1,56 @@
-<p>
-  fetchbyid works!
-</p>
+<div class="layout">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a routerLink="/home" class="breadcrumbs__item">Home</a>
+      <a routerLink="/search" class="breadcrumbs__item">Components</a>
+      <span class="breadcrumbs__item">Fetch API</span>
+    </div>
+    <div class="layout__side">
+      <div class="contents">
+        <div class="side">
+          <app-tryit></app-tryit>
+        </div>
+      </div>
+    </div>
+    <div class="layout__content">
+      <div class="article">
+        <h1>FetchById API</h1>
+        <hr />
+        <h2 id="description">Description</h2>
+        <p>The Fetch API allows to get a JSON document from the index based on its id. The following example gets a JSON
+          document from an index called twitter with id valued <code class="highlighter-rouge">02032665</code>.
+          Remember, <code class="highlighter-rouge">access_token</code> provided will decide on
+          which index search operation needs to be done for particular id. For sampling, PeopleFinder app_name is used
+          and it
+          is searching an employee with empid.</p>
+        <h2 id="resp">Performing Fetch</h2>
+        <p>
+          <img src="../../assets/img/components/fetchapi/fetch.png" alt="Fetch Req" />
+        </p>
+        <p>
+          <img src="../../assets/img/components/fetchapi/fetchsuccess.png" alt="Fetch Success" />
+        </p>
+        <h2>API Response</h2>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="fetchResponse"></ngx-json-viewer>
+          </div>
+        </div>
+        <h2 id="types">Error Handling</h2>
+        <p>A well observed and tested error handling integrated in Wrapper application as every error encountered during
+          usage of
+          the API will throw an user understandable error output.</p>
+        <p>
+          <img src="../../assets/img/components/fetchapi/fetcherror.png" alt="Fetch Success" />
+        </p>
+        <h2>Error Response</h2>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="fetchError"></ngx-json-viewer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__spacer"></div>

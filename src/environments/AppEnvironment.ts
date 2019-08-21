@@ -38,7 +38,7 @@ export const AppEnvironment = {
                 "authentication": true
             },
             "fetchbyid": {
-                "type": "POST",
+                "type": "GET",
                 "route": "fetchbyid",
                 "authentication": true
             },
