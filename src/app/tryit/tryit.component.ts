@@ -36,8 +36,8 @@ export class TryitComponent implements OnInit {
   ngOnInit() {
     this.savedToken = sessionStorage.getItem('token');
     this.headers = new HttpHeaders()
-      .set('access_token', this.savedToken)
-      .set('Content-Type', 'application/json');
+      .set('Content-Type', 'application/json')
+      .set('access_token', this.savedToken);
     this.apiDetails = this.apiService.getData().subscribe((data) => {
       this.details = data;
     });
