@@ -1,3 +1,93 @@
-<p>
-  autocomplete works!
-</p>
+<div class="layout">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a routerLink="/home" class="breadcrumbs__item">Home</a>
+      <a routerLink="/autocomplete" class="breadcrumbs__item">Components</a>
+      <span class="breadcrumbs__item">Autocomplete API</span>
+    </div>
+    <div class="layout__side">
+      <div class="contents">
+        <div class="side">
+          <app-tryit></app-tryit>
+        </div>
+      </div>
+    </div>
+    <div class="layout__content">
+      <div class="article">
+        <h1>Autocomplete API</h1>
+        <hr />
+        <h2 id="description">Description</h2>
+        <p>Autocomplete, or word completion, is a feature in which an application predicts the rest of a word a user is
+          typing. Let’s take a very common example. Whenever you go to <code class="highlighter-rouge">Google</code> and
+          start typing, a drop-down appears
+          which lists the <code class="highlighter-rouge">suggestions</code>. Those suggestions are related to the query
+          and help the user in completing his
+          query.</p>
+        <p><img src="../../assets/img/components/autocomplete/autocomplete-sample.png" alt="Autocomplete View" /></p>
+        <h2 id="howitworks">How Autocomplete Works?</h2>
+        <p>It helps in navigating or guiding a user by prompting them with likely completions and alternatives to the
+          text as they are typing it. It reduces the amount of character a user needs to type before executing any
+          search actions, thereby enhancing the search experience of users.</p>
+        <h2 id="completion">Completion Suggester</h2>
+        <p>Elasticsearch is shipped with an in-house solution called Completion Suggester. It uses an in-memory data
+          structure called Finite State Transducer(FST). Elasticsearch stores FST on a per segment basis, which means
+          suggestions scale horizontally as more new nodes are added.</p>
+        <p>Some of the things to keep in mind when implementing Completion Suggester</p>
+        <ul>
+          <li>The autosuggest items should have completion types as its field type.</li>
+          <li>An input field can have various canonical or alias name for a single term.</li>
+          <li>Weights can be defined with each document to control their ranking.</li>
+          <li>Storing all the terms in lowercase helps in the case-insensitive match.</li>
+          <li>Context suggesters can be enabled to support filtering or boosting by certain criteria.</li>
+        </ul>
+        <h2 id="config">Autocomplete Configuration</h2>
+        <p>To use autocomplete, you need to configure on which filed(s) should autocomplete observe to provide
+          suggestions. For this purpose, a few configurations are written in basic javascript pipeline which denotes the
+          mentioned keys in Array would be used to retrieve suggestions.</p>
+        <p>Though the list is too big to be displayed as sample, here's a optimized set of configuration fields which
+          are being used in elasticsearch Wrapper for autocomplete suggestions.</p>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="autoMappings"></ngx-json-viewer>
+          </div>
+        </div>
+        <h2 id="resp">Consuming Autocomplete API</h2>
+        <span><strong>Request Sample</strong></span>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="autocompletReq"></ngx-json-viewer>
+          </div>
+        </div>
+
+        <span><strong>Response Sample</strong></span>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="autocompleteResp"></ngx-json-viewer>
+          </div>
+        </div>
+
+        <p>
+          <img src="../../assets/img/components/autocomplete/autocomplete-req.png" alt="autocomplete Req" />
+        </p>
+        <p><img src="../../assets/img/components/autocomplete/autocomplete-resp.png" alt="Autocomplete Resp" /></p>
+
+        <h2 id="types">Error Handling</h2>
+        <p>A well observed and tested error handling integrated in Wrapper application as every error encountered during
+          usage of
+          the API will throw an user understandable error output. The error specifying that required Content-Type was
+          not passed into the headers during autocomplete API consumption. Required header value to consume this API
+          will be Content-Type <code class="highlighter-rouge">application/json</code></p>
+        <p>
+          <img src="../../assets/img/components/autocomplete/autoerror.png" alt="Error" />
+        </p>
+        <h2>Error Response</h2>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="autoError"></ngx-json-viewer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__spacer"></div>
