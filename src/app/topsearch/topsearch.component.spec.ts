@@ -8,9 +8,9 @@ describe('TopsearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopsearchComponent ]
+      declarations: [TopsearchComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

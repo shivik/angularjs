@@ -54,5 +54,4 @@ export class SearchComponent implements OnInit {
       "app": "Demand Planning Tool"
     }
   ];
-
 }

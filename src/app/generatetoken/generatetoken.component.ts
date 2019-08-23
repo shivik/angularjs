@@ -63,5 +63,4 @@ export class GeneratetokenComponent implements OnInit {
     "errorCode": 107,
     "app": "Demand Planning Tool"
   }];
-
 }

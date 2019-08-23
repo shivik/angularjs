@@ -82,6 +82,4 @@ export class TryitComponent implements OnInit {
     }
     return this.response;
   }
-
-
 }

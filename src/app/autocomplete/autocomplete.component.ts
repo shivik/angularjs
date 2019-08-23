@@ -112,8 +112,8 @@ export class AutocompleteComponent implements OnInit {
     }
   ];
 
-  autocompletReq:any=[{
-    "index":"employeesearch",
+  autocompletReq: any = [{
+    "index": "employeesearch",
     "prefix": "hari",
     "field": "employeename"
   }];

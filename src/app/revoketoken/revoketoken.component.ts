@@ -9,7 +9,7 @@ import { AppEnvironment } from '../../environments/AppEnvironment';
   styleUrls: ['./revoketoken.component.css']
 })
 export class RevoketokenComponent implements OnInit {
-  tokenDetails: Subscription; 
+  tokenDetails: Subscription;
   token: object;
   server: object;
   response: any;
@@ -25,7 +25,6 @@ export class RevoketokenComponent implements OnInit {
       this.token = token;
     });
   }
-
 
   revokeReq: any = [
     {
@@ -47,5 +46,4 @@ export class RevoketokenComponent implements OnInit {
       "app": "PeopleFinder"
     }
   ];
-
 }

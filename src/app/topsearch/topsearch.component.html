@@ -1,3 +1,83 @@
-<p>
-  topsearch works!
-</p>
+<div class="layout">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a routerLink="/home" class="breadcrumbs__item">Home</a>
+      <a routerLink="/topsearch" class="breadcrumbs__item">Components</a>
+      <span class="breadcrumbs__item">Top Search API</span>
+    </div>
+    <div class="layout__side">
+      <div class="contents">
+        <div class="side">
+          <app-tryit></app-tryit>
+        </div>
+      </div>
+    </div>
+    <div class="layout__content">
+      <div class="article">
+        <h1>Top Search API</h1>
+        <hr />
+        <h2 id="description">Description</h2>
+        <p>Top Search History tells you what terms users are mostly searching for in applications. The term getting
+          searched again and again will have more weightage and score. Top Search history popularly used in top social
+          media application environments where one has to track which term or particular search is trending in times
+          or within a given time range.</p>
+        <h2 id="types">API Prerequisite</h2>
+        <p>Using this API certainly doesn't require any JSON request payload. Everything the payload contains is <code
+            class="highlighter-rouge">optional</code>. A summary of the payload values is described below;</p>
+        <ul>
+          <li><code class="highlighter-rouge">size</code> - Size parameter is passed to tell the wrapper, what size of
+            data an user is expecting. If size is not added into the payload, query will retrieve 10 recent search
+            records by default.</li>
+          <li><code class="highlighter-rouge">username</code> - By default, elasticsearch Wrapper will give you result
+            set of recent search history without any specification like which user made such searches. username
+            parameter will help you get more refined search. When this parameters is passed to the elasticsearch,
+            elasticsearch will serve you with the particular user dataset.</li>
+          <li><code class="highlighter-rouge">appname</code> - A similar approach like <code
+              class="highlighter-rouge">username</code>, <code class="highlighter-rouge">appname</code> will get the
+            application specific search made by an user if username key is passed, else a complete dataset of recent
+            searches made by authorized users onto the application.</li>
+        </ul>
+
+
+        <h2 id="rcntreq">Request Sample</h2>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="reqSample"></ngx-json-viewer>
+          </div>
+        </div>
+        <p><span class="warn">NOTE</span>: <i>Top Search History is disabled by default on all the applications
+            except
+            GlobalLessonLearnt. It can be enabled/disabled on application level. Application owner must ask developers
+            to
+            make it active on their application configuration.</i></p>
+        <h2 id="respsmpl">Response Sample</h2>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="respSample"></ngx-json-viewer>
+          </div>
+        </div>
+
+        <!-- <h2 id="wwpres">What we preserve in Search History?</h2>
+        <p>The following information is captured from user session and kept into the elasticsearch index to maintain
+          search history data.</p>
+        <ul>
+          <li><code class="highlighter-rouge">username</code> - used to track the authenticated user to the application.
+          </li>
+          <li><code class="highlighter-rouge">appname</code> - the application name user has accessed.</li>
+          <li><code class="highlighter-rouge">key</code>- the search term user has requested.</li>
+          <li><code class="highlighter-rouge">timecreated</code>- the timestamp at which user initiate the search.</li>
+          <li><code class="highlighter-rouge">devicetype</code> - and the device type user was using to access the
+            application. </li>
+
+        </ul>
+        <h2 id="datasmpl">Sample Data</h2>
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="savedData"></ngx-json-viewer>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+  <div class="footer__spacer"></div>

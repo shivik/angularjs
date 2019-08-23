@@ -8,9 +8,9 @@ describe('GeneratetokenComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GeneratetokenComponent ]
+      declarations: [GeneratetokenComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

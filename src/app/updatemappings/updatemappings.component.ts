@@ -52,5 +52,4 @@ export class UpdatemappingsComponent implements OnInit {
       "app": "Demand Planning Tool"
     }
   ];
-
 }

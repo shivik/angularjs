@@ -8,9 +8,9 @@ describe('UpdatemappingsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UpdatemappingsComponent ]
+      declarations: [UpdatemappingsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

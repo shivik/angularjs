@@ -8,9 +8,9 @@ describe('RevoketokenComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RevoketokenComponent ]
+      declarations: [RevoketokenComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

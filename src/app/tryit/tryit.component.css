@@ -18,19 +18,6 @@
     font-size: 1.25rem;
 }
 
-
-/* .custom-collapse:before {
-    position: absolute;
-    top: -8px;
-    left: 6px;
-    display: inline-block !important;
-    border-right: 9px solid transparent;
-    border-bottom: 9px solid #333333;
-    border-left: 9px solid transparent;
-    border-bottom-color: rgb(51, 51, 51);
-    content: '';
-    } */
-
 .btn:focus {
     outline: none;
 }

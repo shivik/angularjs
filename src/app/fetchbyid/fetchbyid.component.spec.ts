@@ -8,9 +8,9 @@ describe('FetchbyidComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FetchbyidComponent ]
+      declarations: [FetchbyidComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
