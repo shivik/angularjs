@@ -44,6 +44,64 @@
 
         <!---->
 
+        <h2 id="aggs">2. Aggregation</h2>
+        <p> </p>
+
+        <h3>Using Aggregation</h3>
+        <p>The aggregations helps provide aggregated data based on a search query. It is based on simple building
+          blocks called aggregations, that can be composed in order to build complex summaries of the data.</p>
+        <h4>Aggregation Sample</h4><br />
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <p>POST _search </p>
+            <ngx-json-viewer [json]="aggSample"></ngx-json-viewer>
+          </div>
+        </div>
+        <h4>Aggregation Response Sample</h4><br />
+        <div class="highlighter-rouge">
+          <div class="highlight">
+            <ngx-json-viewer [json]="aggSampleResp"></ngx-json-viewer>
+          </div>
+        </div>
+        <br />
+        <p>An aggregation can be seen as a unit-of-work that builds analytic information over a set of documents. The
+          context of the execution defines what this document set is (e.g. a top-level aggregation executes within the
+          context of the executed query/filters of the search request).
+        </p>
+        <h3>Aggregation Types</h3>
+        <p>There are many different types of aggregations, each with its own purpose and output. To better understand
+          these types, it is often easier to break them into four main families:</p>
+        <ul>
+          <li><strong>Bucketing</strong></li>
+          <p>Bucket aggregations don’t calculate metrics over fields like the metrics aggregations do, but instead, they
+            create buckets of documents. Each bucket is associated with a criterion (depending on the aggregation type)
+            which determines whether or not a document in the current context "falls" into it. In other words, the
+            buckets effectively define document sets.</p>
+          <li><strong>Metric</strong></li>
+          <p>The aggregations in this family compute metrics based on values extracted in one way or another from the
+            documents that are being aggregated. The values are typically extracted from the fields of the document
+            (using the field data), but can also be generated using scripts.</p>
+          <li><strong>Pipeline</strong></li>
+          <p>Pipeline aggregations work on the outputs produced from other aggregations rather than from document sets,
+            adding information to the output tree. There are many different types of pipeline aggregation, each
+            computing different information from other aggregations, but these types can be broken down into two
+            families:</p>
+          <ul>
+            <li><strong>Parent</strong>
+              <p>A family of pipeline aggregations that is provided with the output of its parent aggregation and is
+                able to compute new buckets or new aggregations to add to existing buckets.</p>
+            </li>
+            <li><strong>Sibling</strong>
+              <p>Pipeline aggregations that are provided with the output of a sibling aggregation and are able to
+                compute a new aggregation which will be at the same level as the sibling aggregation.</p>
+            </li>
+          </ul>
+
+        </ul>
+
+
+        <!---->
+
         <h2 id="suggest">2. Suggesters</h2>
         <p> </p>
 

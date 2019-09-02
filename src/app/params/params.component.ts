@@ -29,6 +29,27 @@ export class ParamsComponent implements OnInit {
     }
   ];
 
+  aggSample: any = [
+    {
+      "aggregations": {
+        "custom_name": {
+          "your_query": {}
+        }
+      }
+    }
+  ];
+  aggSampleResp: any = [
+    {
+      "aggregations": {
+        "custom_name": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": []
+        }
+      }
+    }
+  ];
+
   pageSizeQuery: any = [
     {
       "from": 10,
