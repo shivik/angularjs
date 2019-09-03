@@ -29,19 +29,28 @@
           them are listed here but Elasticsearch wrapper is not limited to only these.</p>
         <ul>
           <li>
-            <code class="highlighter-rouge">empty search</code> -
+            <code class="highlighter-rouge"><a routerLink="/types">empty search</a></code> -
             Returns the result without any input to the search.
           </li>
-          <li><code class="highlighter-rouge">search_keyword</code> -
+          <li><code class="highlighter-rouge"><a routerLink="/types">search_keyword</a></code> -
             search_keyword looks for words anywhere in the record. This search type observes
             the Analyzers and Mappings of the fields, processes the search input and fetch
             all the records where input is existing. This a good substitute
             for a subject search when you do not know the standard subject heading. It may
             also be used as a substitute for user input as search when you have incomplete
             details about the information you're seeking.</li>
-          <li><a routerLink="/searchterm"><code class="highlighter-rouge">search_term</code></a></li>
-          <li><a routerLink="/refinedby"><code class="highlighter-rouge">refined_by</code></a></li>
-          <li><a routerLink="/advancesearch"><code class="highlighter-rouge">advanced_search</code></a></li>
+            <li>
+              <code class="highlighter-rouge"><a routerLink="/types">search_term</a></code> -
+              Returns the result without any input to the search.
+            </li>
+            <li>
+              <code class="highlighter-rouge"><a routerLink="/types">refined_by</a></code> -
+              Returns the result without any input to the search.
+            </li>
+            <li>
+              <code class="highlighter-rouge"><a routerLink="/types">advance_search</a></code> -
+              Returns the result without any input to the search.
+            </li>
         </ul>
 
         <h2 id="params">Search Parameters</h2>
