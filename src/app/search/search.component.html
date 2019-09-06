@@ -1,4 +1,4 @@
-<div class="layout">
+﻿<div class="layout">
   <div class="wrap">
     <div class="breadcrumbs">
       <a routerLink="/home" class="breadcrumbs__item">Home</a>
@@ -7,7 +7,7 @@
     </div>
     <div class="layout__side">
       <div class="contents">
-        <div class="side">
+        <div id="tryit" class="side">
           <app-tryit></app-tryit>
         </div>
       </div>
@@ -24,33 +24,33 @@
           variety of query styles as for Multiple Query Styles. The
           Search API makes it easy to create search applications without needing to understand
           many of the details of the <code class="highlighter-rouge">elasticsearch</code>.</p>
-        <h2 id="types">Search Types</h2>
+        <h2 id="srchtypes">Search Types</h2>
         <p>There are different types of searches can be performed using search API. A few of
           them are listed here but Elasticsearch wrapper is not limited to only these.</p>
         <ul>
           <li>
-            <code class="highlighter-rouge"><a routerLink="/types">empty search</a></code> -
+            <code class="highlighter-rouge"><a pageScroll href="#emptysrch">empty search</a></code> -
             Returns the result without any input to the search.
           </li>
-          <li><code class="highlighter-rouge"><a routerLink="/types">search_keyword</a></code> -
+          <li><code class="highlighter-rouge"><a pageScroll href="#srchkeyw">search_keyword</a></code> -
             search_keyword looks for words anywhere in the record. This search type observes
             the Analyzers and Mappings of the fields, processes the search input and fetch
             all the records where input is existing. This a good substitute
             for a subject search when you do not know the standard subject heading. It may
             also be used as a substitute for user input as search when you have incomplete
             details about the information you're seeking.</li>
-            <li>
-              <code class="highlighter-rouge"><a routerLink="/types">search_term</a></code> -
-              Returns the result without any input to the search.
-            </li>
-            <li>
-              <code class="highlighter-rouge"><a routerLink="/types">refined_by</a></code> -
-              Returns the result without any input to the search.
-            </li>
-            <li>
-              <code class="highlighter-rouge"><a routerLink="/types">advance_search</a></code> -
-              Returns the result without any input to the search.
-            </li>
+          <li>
+            <code class="highlighter-rouge"><a pageScroll href="#sterm">search_term</a></code> -
+            Returns the result without any input to the search.
+          </li>
+          <li>
+            <code class="highlighter-rouge"><a pageScroll href="#refinedby">refined_by</a></code> -
+            Returns the result without any input to the search.
+          </li>
+          <li>
+            <code class="highlighter-rouge"><a pageScroll href="#advncsrch">advance_search</a></code> -
+            Returns the result without any input to the search.
+          </li>
         </ul>
 
         <h2 id="params">Search Parameters</h2>
@@ -69,33 +69,378 @@
           <li><a href="#"><code class="highlighter-rouge">has_child</code></a></li>
           <li><a href="#"><code class="highlighter-rouge">search_type</code></a></li>
         </ul>
-        <h2 id="smpl">sample only</h2>
-        <p><strong>FILTERING EXAMPLE:</strong></p>
-        <div class="highlighter-rouge">
-          <div class="highlight">
-            <ngx-json-viewer [json]="updateMappingResp"></ngx-json-viewer>
-          </div>
-        </div>
 
-        <p><strong>EXAMPLE FOR CBR PASSTHROUGH:</strong></p>
+        <!---->
 
-        <p>Let’s say that the first step of flow returns the following data in the sample:</p>
-        <div class="highlighter-rouge">
-          <div class="highlight">
-            <ngx-json-viewer [json]="updateMappingResp"></ngx-json-viewer>
+        <div class="article">
+          <h1>Search Types</h1>
+          <p>There are different types of searches can be performed using search API. A few of
+            them are listed here but Elasticsearch wrapper is not limited to only these.</p>
+          <hr />
+          <h2 id="emptysrch">1. Empty Search</h2> 
+          <p>Empty Search is the type of search enables users to perform search without providing any input parameter to
+            elasticsearch to perform its operation. Empty search takes the parameters from JWT token to observe the
+            details on which index search has to be perform and initiates the search without any JSON body parameter.
+          </p>
+          <h3>Using Empty Search</h3>
+          <p>In order to perform an empty search feature, you must have a valid JWT Token associated to the application
+            you want to perform search operation. JWT token can be generated using <a routerLink="/generatetoken"><code
+                class="highlighter-rouge">generatetoken</code></a> endpoint by passing request parameters to it.. </p>
+          <h4>Empty Search Sample</h4><br />
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <p>POST _search</p>
+              <ngx-json-viewer [json]="emptySearch"></ngx-json-viewer>
+            </div>
+          </div><br />
+          <h4>Wrapper Constructed Query</h4><br />
+
+          <p>While hitting the search Endpoint, the following query will be generated if <code
+              class="highlighter-rouge">debug</code> used.</p>
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <ngx-json-viewer [json]="searchConst"></ngx-json-viewer>
+            </div>
           </div>
+          <div class="pull-right"><a pageScroll href="#srchtypes">Jump to Types</a></div>
+          <br />
+
+          <!---->
+
+          <h2 id="srchkeyw">2. Search Keyword</h2>
+          <p>The search_keyword enable you to search analyzed text fields such as the body of an email. The query
+            string is processed using the same analyzer that was applied to the field during indexing. </p>
+
+          <h3>Using Search Keyword</h3>
+          <p>In order to perform search using search_keyword, you must have a valid JWT Token and search_keyword has to
+            be
+            sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+                class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+          <h4>Empty Search Sample</h4><br />
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <p>POST _search</p>
+              <ngx-json-viewer [json]="search_keyword"></ngx-json-viewer>
+            </div>
+          </div><br />
+          <h4>JSON Response</h4><br />
+
+          <p>While hitting the search Endpoint, the following response will be generated</p>
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <ngx-json-viewer [json]="srchKeyResp"></ngx-json-viewer>
+            </div>
+          </div>
+          <div class="pull-right"><a pageScroll href="#srchtypes">Jump to Types</a></div>
+          <br />
+          <!---->
+
+          <h2 id="sterm">3. Search Term</h2>
+          <p>The search_term enable you to search the exact matches to the text used as input to search_term. It
+            analyzes
+            the text and creates a phrase query out of the analyzed text</p>
+
+          <h3>Using Search Term</h3>
+          <p>In order to perform search using search_term, you must have a valid JWT Token and search_keyword has to be
+            sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+                class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+          <h4>Search Term Sample</h4><br />
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <p>POST _search</p>
+              <ngx-json-viewer [json]="search_term"></ngx-json-viewer>
+            </div>
+          </div><br />
+          <h4>JSON Response</h4><br />
+
+          <p>While hitting the search Endpoint, the following response will be generated</p>
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <ngx-json-viewer [json]="srchTrmResp"></ngx-json-viewer>
+            </div>
+          </div>
+          <div class="pull-right"><a pageScroll href="#srchtypes">Jump to Types</a></div>
+          <br />
+          <!---->
+
+          <h2 id="refinedby">4. Refined By</h2>
+          <p>The refined_by enable you to use filtered search. To use refined_by, you must need to mention the field(s)
+            name on which you want to set filters to retrieve data from a dataset.</p>
+          <h3>Using refined_by</h3>
+          <p>In order to perform search using search_term, you must have a valid JWT Token and search_keyword has to be
+            sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+                class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+          <h4>Empty Search Sample</h4><br />
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <p>POST _search</p>
+              <ngx-json-viewer [json]="refined_by"></ngx-json-viewer>
+            </div>
+          </div><br />
+          <h4>JSON Response</h4><br />
+
+          <p>While hitting the search Endpoint, the following response will be generated</p>
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <ngx-json-viewer [json]="refinedResp"></ngx-json-viewer>
+            </div>
+          </div>
+          <div class="pull-right"><a pageScroll href="#srchtypes">Jump to Types</a></div>
+          <br />
+          <!---->
+
+          <h2 id="advncsrch">5. Advance Search</h2>
+          <p>The advanced_search can be of exact type or full text search type enable you to search by fields.For
+            example
+            when you want to search provided text in particular fields, then advance search is used.</p>
+          <h3>Using advance_search</h3>
+          <p>In order to perform search using search_term, you must have a valid JWT Token and search_keyword has to be
+            sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+                class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+          <h4>Empty Search Sample</h4><br />
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <p>POST _search</p>
+              <ngx-json-viewer [json]="advance_search"></ngx-json-viewer>
+            </div>
+          </div><br />
+          <h4>JSON Response</h4><br />
+
+          <p>When hitting the search Endpoint, the following response will be generated</p>
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <ngx-json-viewer [json]="advcsrchresp"></ngx-json-viewer>
+            </div>
+          </div>
+          <div class="pull-right"><a pageScroll href="#srchtypes">Jump to Types</a></div>
+          <br />
+
+          <h1>Search Parameters</h1>
+          <p>There are different types of searches parameters that can be used in search API. A few of
+            them are listed here but Elasticsearch wrapper is not limited to only these.</p>
+          <hr />
+          <h2 id="psize">1. Size/Offset</h2>
+          <p>Pagination of results can be done by using the from and size parameters. The from parameter defines the
+            offset from the first result you want to fetch. The size parameter allows you to configure the maximum amount
+            of hits to be returned. Note that from + size can not be more than the <code
+              class="highlighter-rouge">index.max_result_window</code> index setting
+            which defaults to 10,000. For limitless pagination, see <a routerLink="/scroll"><code
+                class="highlighter-rouge">Scroll API</code></a></p>
+  
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <p>POST _search</p>
+              <ngx-json-viewer [json]="page_size"></ngx-json-viewer>
+            </div>
+          </div><br />
+          <h4>Wrapper Constructed Query</h4><br />
+          <p>While hitting the search Endpoint, the following query will be generated if <code
+              class="highlighter-rouge">debug</code> used.</p>
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <ngx-json-viewer [json]="pageSizeQuery"></ngx-json-viewer>
+            </div>
+          </div>
+          <br />
+  
+          <!---->
+  
+          <h2 id="aggs">2. Aggregation</h2>
+          <p> </p>
+  
+          <h3>Using Aggregation</h3>
+          <p>The aggregations helps provide aggregated data based on a search query. It is based on simple building
+            blocks called aggregations, that can be composed in order to build complex summaries of the data.</p>
+          <h4>Aggregation Sample</h4><br />
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <p>POST _search </p>
+              <ngx-json-viewer [json]="aggSample"></ngx-json-viewer>
+            </div>
+          </div>
+          <h4>Aggregation Response Sample</h4><br />
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <ngx-json-viewer [json]="aggSampleResp"></ngx-json-viewer>
+            </div>
+          </div>
+          <br />
+          <p>An aggregation can be seen as a unit-of-work that builds analytic information over a set of documents. The
+            context of the execution defines what this document set is (e.g. a top-level aggregation executes within the
+            context of the executed query/filters of the search request).
+          </p>
+          <h3>Aggregation Types</h3>
+          <p>There are many different types of aggregations, each with its own purpose and output. To better understand
+            these types, it is often easier to break them into four main families:</p>
+          <ul>
+            <li><strong>Bucketing</strong></li>
+            <p>Bucket aggregations don’t calculate metrics over fields like the metrics aggregations do, but instead, they
+              create buckets of documents. Each bucket is associated with a criterion (depending on the aggregation type)
+              which determines whether or not a document in the current context "falls" into it. In other words, the
+              buckets effectively define document sets.</p>
+            <li><strong>Metric</strong></li>
+            <p>The aggregations in this family compute metrics based on values extracted in one way or another from the
+              documents that are being aggregated. The values are typically extracted from the fields of the document
+              (using the field data), but can also be generated using scripts.</p>
+            <li><strong>Pipeline</strong></li>
+            <p>Pipeline aggregations work on the outputs produced from other aggregations rather than from document sets,
+              adding information to the output tree. There are many different types of pipeline aggregation, each
+              computing different information from other aggregations, but these types can be broken down into two
+              families:</p>
+            <ul>
+              <li><strong>Parent</strong>
+                <p>A family of pipeline aggregations that is provided with the output of its parent aggregation and is
+                  able to compute new buckets or new aggregations to add to existing buckets.</p>
+              </li>
+              <li><strong>Sibling</strong>
+                <p>Pipeline aggregations that are provided with the output of a sibling aggregation and are able to
+                  compute a new aggregation which will be at the same level as the sibling aggregation.</p>
+              </li>
+            </ul>
+  
+          </ul>
+  
+  
+          <!---->
+  
+          <h2 id="suggest">2. Suggesters</h2>
+          <p> </p>
+  
+          <h3>Using Search Keyword</h3>
+          <p>In order to perform search using search_keyword, you must have a valid JWT Token and search_keyword has to be
+            sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+                class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+          <h4>Empty Search Sample</h4><br />
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <p>POST _search </p>
+              <ngx-json-viewer [json]=""></ngx-json-viewer>
+            </div>
+          </div><br />
+          <h4>JSON Response</h4><br />
+  
+          <p>While hitting the search Endpoint, the following response will be generated</p>
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <ngx-json-viewer [json]=""></ngx-json-viewer>
+            </div>
+          </div>
+          <br />
+  
+          <!---->
+  
+          <h2 id="highlight">3. Highlight</h2>
+          <p></p>
+  
+          <h3>Using Search Term</h3>
+          <p>In order to perform search using search_term, you must have a valid JWT Token and search_keyword has to be
+            sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+                class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+          <h4>Empty Search Sample</h4><br />
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <p>POST _search</p>
+              <ngx-json-viewer [json]=""></ngx-json-viewer>
+            </div>
+          </div><br />
+          <h4>JSON Response</h4><br />
+  
+          <p>While hitting the search Endpoint, the following response will be generated</p>
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <ngx-json-viewer [json]=""></ngx-json-viewer>
+            </div>
+          </div>
+          <br />
+  
+          <!---->
+  
+          <h2 id="parent">4. Has Parent</h2>
+          <p></p>
+          <h3>Using refined_by</h3>
+          <p>In order to perform search using search_term, you must have a valid JWT Token and search_keyword has to be
+            sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+                class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+          <h4>Empty Search Sample</h4><br />
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <p>POST _search</p>
+              <ngx-json-viewer [json]=""></ngx-json-viewer>
+            </div>
+          </div><br />
+          <h4>JSON Response</h4><br />
+  
+          <p>While hitting the search Endpoint, the following response will be generated</p>
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <ngx-json-viewer [json]=""></ngx-json-viewer>
+            </div>
+          </div>
+          <br />
+  
+          <!---->
+  
+          <h2 id="child">5. Has Child</h2>
+          <p></p>
+          <h3>Using advance_search</h3>
+          <p>In order to perform search using search_term, you must have a valid JWT Token and search_keyword has to be
+            sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+                class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+          <h4>Empty Search Sample</h4><br />
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <p>POST _search</p>
+              <ngx-json-viewer [json]=""></ngx-json-viewer>
+            </div>
+          </div><br />
+          <h4>JSON Response</h4><br />
+  
+          <p>While hitting the search Endpoint, the following response will be generated</p>
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <ngx-json-viewer [json]=""></ngx-json-viewer>
+            </div>
+          </div>
+          <br />
+  
+          <!---->
+  
+          <h2 id="type">6. Search Type</h2>
+          <p></p>
+          <h3>Using advance_search</h3>
+          <p>In order to perform search using search_term, you must have a valid JWT Token and search_keyword has to be
+            sent in as body parameter. JWT token can be generated using <a routerLink="/generatetoken"><code
+                class="highlighter-rouge">generatetoken</code></a> endpoint. </p>
+          <h4>Empty Search Sample</h4><br />
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <p>POST _search</p>
+              <ngx-json-viewer [json]=""></ngx-json-viewer>
+            </div>
+          </div><br />
+          <h4>JSON Response</h4><br />
+  
+          <p>While hitting the search Endpoint, the following response will be generated</p>
+          <div class="highlighter-rouge">
+            <div class="highlight">
+              <ngx-json-viewer [json]=""></ngx-json-viewer>
+            </div>
+          </div>
+          <br />
+  
+          <!--<h2 id="known-limitations">Known limitations</h2>
+              <p>Here are the limitation of this component</a>.</p>
+               <ul>
+                <li><strong>Sender Name</strong> must be 3 to 11 characters long and contain only
+                  alpha-numeric (<code class="highlighter-rouge">A-Z/0-9</code>) values and must
+                  start with a letter.</li>
+                <li><strong>Message Text</strong> must be no longer than 160 characters for a single
+                  SMS.</li>
+                <li><strong>Number of recipients</strong> is recommended to keep below 2000.</li>
+              </ul> -->
+
         </div>
-        <h2 id="known-limitations">Known limitations</h2>
-        <p>Here are the limitation of this component enforced by the <a
-            href="https://www.allmysms.com/en/">AllMySMS</a>.</p>
-        <ul>
-          <li><strong>Sender Name</strong> must be 3 to 11 characters long and contain only
-            alpha-numeric (<code class="highlighter-rouge">A-Z/0-9</code>) values and must
-            start with a letter.</li>
-          <li><strong>Message Text</strong> must be no longer than 160 characters for a single
-            SMS.</li>
-          <li><strong>Number of recipients</strong> is recommended to keep below 2000.</li>
-        </ul>
+        <!---->
       </div>
     </div>
   </div>

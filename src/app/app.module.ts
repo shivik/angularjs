@@ -1,6 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
 import { HomeComponent } from './home/home.component';
 import { InfoComponent } from './info/info.component';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
@@ -49,7 +50,8 @@ import { ParamsComponent } from './params/params.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgxJsonViewerModule
+    NgxJsonViewerModule,
+    Ng2PageScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
