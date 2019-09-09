@@ -229,6 +229,60 @@ export class SearchComponent implements OnInit {
       }
     }
   ];
+
+  page_size: any = [
+    {
+      "from": 10,
+      "page_size": 100,
+    }
+  ];
+
+  aggSample: any = [
+    {
+      "aggregations": {
+        "custom_name": {
+          "your_query": {}
+        }
+      }
+    }
+  ];
+  aggSampleResp: any = [
+    {
+      "aggregations": {
+        "custom_name": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": []
+        }
+      }
+    }
+  ];
+
+  pageSizeQuery: any = [
+    {
+      "from": 10,
+      "size": 100,
+      "query": {
+        "bool": {
+          "must": [],
+          "should": [],
+          "must_not": []
+        }
+      },
+      "_source": {
+        "includes": [
+          "field1",
+          "field2",
+          "field...n"
+        ],
+        "excludes": [
+          "autocomplete",
+          "suggesters"
+        ]
+      }
+    }
+  ];
+  
   updateMappingReq: any = [
     {
       "refresh": true,
